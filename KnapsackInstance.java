@@ -1,4 +1,5 @@
-
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class KnapsackInstance {
@@ -7,17 +8,50 @@ public class KnapsackInstance {
     private KnapsackItem[] items;
 
     public KnapsackInstance(String file) {
-        Scanner scan = new Scanner(file);
-        totalItems = scan.nextInt();
-        capacity = scan.nextDouble();
-        items = new KnapsackItem[totalItems];
-        for (int i = 0; i < totalItems; i++) {
-            int weight = scan.nextInt();
-            int value = scan.nextInt();
-            items[i] = new KnapsackItem(value, weight);
-        }
+        try {
+            Scanner scan = new Scanner(new File(file));
+            ArrayList<KnapsackItem> temp = new ArrayList<KnapsackItem>();
 
-        scan.close();
+            if (scan.hasNextInt()) {
+                totalItems = scan.nextInt();
+            } else {
+                scan.close();
+                throw new IllegalArgumentException("Invalid total items");
+            }
+
+            if (scan.hasNextDouble()) {
+                capacity = scan.nextDouble();
+            } else {
+                scan.close();
+                throw new IllegalArgumentException("Invalid capacity");
+            }
+
+            while (scan.hasNextDouble()) {
+                double value = scan.nextDouble();
+
+                if (scan.hasNextDouble()) {
+                    double weight = scan.nextDouble();
+                    temp.add(new KnapsackItem(value, weight));
+                } else {
+                    scan.close();
+                    throw new IllegalArgumentException("Invalid entry. Missing weight");
+                }
+            }
+
+            if (temp.size() != totalItems) {
+                scan.close();
+                throw new IllegalArgumentException("Expected " + totalItems + " items, but found " + temp.size());
+            }
+            items = temp.toArray(new KnapsackItem[0]);
+
+            scan.close();
+        } catch (Exception e) {
+            totalItems = 0;
+            capacity = 0;
+            items = new KnapsackItem[0];
+            System.out.println("Encountered a problem while reading the file. File format may be incorrect. Error: "
+                    + e.getMessage());
+        }
     }
 
     public int getTotalItems() {
@@ -36,7 +70,7 @@ public class KnapsackInstance {
         double totalWeight = 0.0;
         for (int i = 0; i < valid.length; i++) {
             if (valid[i] == true) {
-                totalItems += items[i].getWeight();
+                totalWeight += items[i].getWeight();
             }
         }
 
