@@ -73,9 +73,13 @@ public class KnapsackInstance {
     }
 
     public boolean isValid(boolean[] valid) {
+        if (valid == null || items == null || valid.length != items.length) {
+            return false;
+        }
+
         double totalWeight = 0.0;
         for (int i = 0; i < valid.length; i++) {
-            if (valid[i]) {
+            if (valid[i] == true) {
                 totalWeight += items[i].getWeight();
             }
         }
