@@ -10,7 +10,7 @@ public class KnapsackInstance {
 
     public KnapsackInstance(String file) {
         try {
-            //Make the scanner object and temporary list.
+            // Make the scanner object and temporary list.
             Scanner scan = new Scanner(new File(file));
             scan.useLocale(Locale.US); // This is so the scanner read 0.928 as a double. Instead of needing 0,928
             ArrayList<KnapsackItem> temp = new ArrayList<KnapsackItem>();
@@ -31,11 +31,12 @@ public class KnapsackInstance {
                 throw new IllegalArgumentException("Invalid capacity");
             }
 
-            //now loop through the rest of the file.
+            // now loop through the rest of the file.
             while (scan.hasNextDouble()) {
                 double value = scan.nextDouble();
 
-                // Gets the weight and adds to the temp list, if invalid (value, no weight) it throws an error
+                // Gets the weight and adds to the temp list, if invalid (value, no weight) it
+                // throws an error
                 if (scan.hasNextDouble()) {
                     double weight = scan.nextDouble();
                     temp.add(new KnapsackItem(value, weight));
@@ -45,7 +46,8 @@ public class KnapsackInstance {
                 }
             }
 
-            // The total items should match the items we have extracted from the file, otherwise invalid.
+            // The total items should match the items we have extracted from the file,
+            // otherwise invalid.
             if (temp.size() != totalItems) {
                 scan.close();
                 throw new IllegalArgumentException("Expected " + totalItems + " items, but found " + temp.size());
@@ -75,6 +77,10 @@ public class KnapsackInstance {
     }
 
     public boolean isValid(boolean[] valid) {
+        if (valid == null || items == null || valid.length != items.length) {
+            return false;
+        }
+
         double totalWeight = 0.0;
         for (int i = 0; i < valid.length; i++) {
             if (valid[i] == true) {
