@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class KnapsackInstance {
@@ -11,6 +12,7 @@ public class KnapsackInstance {
         try {
             //Make the scanner object and temporary list.
             Scanner scan = new Scanner(new File(file));
+            scan.useLocale(Locale.US); // This is so the scanner read 0.928 as a double. Instead of needing 0,928
             ArrayList<KnapsackItem> temp = new ArrayList<KnapsackItem>();
 
             // Check for total items and throws an error if not there.
