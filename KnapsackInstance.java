@@ -9,9 +9,11 @@ public class KnapsackInstance {
 
     public KnapsackInstance(String file) {
         try {
+            //Make the scanner object and temporary list.
             Scanner scan = new Scanner(new File(file));
             ArrayList<KnapsackItem> temp = new ArrayList<KnapsackItem>();
 
+            // Check for total items and throws an error if not there.
             if (scan.hasNextInt()) {
                 totalItems = scan.nextInt();
             } else {
@@ -19,6 +21,7 @@ public class KnapsackInstance {
                 throw new IllegalArgumentException("Invalid total items");
             }
 
+            // Check for capacity and throws an error if not there.
             if (scan.hasNextDouble()) {
                 capacity = scan.nextDouble();
             } else {
@@ -26,9 +29,11 @@ public class KnapsackInstance {
                 throw new IllegalArgumentException("Invalid capacity");
             }
 
+            //now loop through the rest of the file.
             while (scan.hasNextDouble()) {
                 double value = scan.nextDouble();
 
+                // Gets the weight and adds to the temp list, if invalid (value, no weight) it throws an error
                 if (scan.hasNextDouble()) {
                     double weight = scan.nextDouble();
                     temp.add(new KnapsackItem(value, weight));
@@ -38,6 +43,7 @@ public class KnapsackInstance {
                 }
             }
 
+            // The total items should match the items we have extracted from the file, otherwise invalid.
             if (temp.size() != totalItems) {
                 scan.close();
                 throw new IllegalArgumentException("Expected " + totalItems + " items, but found " + temp.size());
