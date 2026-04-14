@@ -1,17 +1,17 @@
 public class KnapsackItem {
-    private int weight;
-    private int value;
+    private double weight;
+    private double value;
 
-    public KnapsackItem(int weight, int value) {
+    public KnapsackItem(double value, double weight) {
         this.weight = weight;
         this.value = value;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 }
