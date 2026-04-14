@@ -73,7 +73,7 @@ public class KnapsackInstance {
     }
 
     public boolean isValid(boolean[] valid) {
-        if (valid == null || items == null || valid.length != items.length) {
+        if (valid == null) {
             return false;
         }
 
