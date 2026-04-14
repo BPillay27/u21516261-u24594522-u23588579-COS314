@@ -1,4 +1,4 @@
-import java.io.*;
+
 import java.util.Scanner;
 
 public class KnapsackInstance {
@@ -7,22 +7,24 @@ public class KnapsackInstance {
     private KnapsackItem[] items;
 
     public KnapsackInstance(String file) {
-        Scanner scan = new Scanner (file); 
+        Scanner scan = new Scanner(file);
         totalItems = scan.nextInt();
         capacity = scan.nextDouble();
-        tems = new KnapsackItem[totalItems];
+        items = new KnapsackItem[totalItems];
         for (int i = 0; i < totalItems; i++) {
             int weight = scan.nextInt();
             int value = scan.nextInt();
             items[i] = new KnapsackItem(value, weight);
         }
+
+        scan.close();
     }
 
     public int getTotalItems() {
         return totalItems;
     }
 
-    public int getCapacity() {
+    public double getCapacity() {
         return capacity;
     }
 
@@ -40,6 +42,4 @@ public class KnapsackInstance {
 
         return totalWeight <= capacity;
     }
-
-    
 }
