@@ -90,4 +90,18 @@ public class KnapsackInstance {
 
         return totalWeight <= capacity;
     }
+
+    public double fitness(boolean[] fit){
+        if (fit == null || items == null || fit.length != items.length) {
+            return 0;
+        }
+
+        double totalWeight = 0.0;
+        for (int i = 0; i < fit.length; i++) {
+            if (valid[i] == true) {
+                totalWeight += fit[i].getWeight();
+            }
+        }
+        return totalWeight;
+    }
 }
