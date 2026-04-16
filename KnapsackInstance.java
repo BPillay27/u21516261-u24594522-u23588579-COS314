@@ -98,8 +98,8 @@ public class KnapsackInstance {
 
         double totalValue = 0.0;
         for (int i = 0; i < fit.length; i++) {
-            if (valid[i] == true) {
-                totalValue += fit[i].getValue();
+            if (fit[i] == true) {
+                totalValue += items[i].getValue();
             }
         }
         return totalValue;
