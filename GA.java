@@ -9,8 +9,8 @@ public class GA{
 
     public GA(KnapsackInstance prob,long seed){
         this.prob=prob;
-        best=boolean[prob.getTotalItems()];
-        pop=boolean[8][prob.getTotalItems()];
+        best=new boolean[prob.getTotalItems()];
+        pop=new boolean[8][prob.getTotalItems()];
         //Population has a size of 8
         this.seed=seed;
     }
@@ -23,7 +23,7 @@ public class GA{
         //Fitness function is the prob.fit()
         
         boolean[][] survival; //This is the variable that contains the population that are selected
-        for(int i=0; i<10; i++){//Termination
+        for(int j=0; j<10; j++){//Termination
             survival = Selection();//Selection
 
         //Crossover
@@ -49,26 +49,31 @@ public class GA{
             if(best==null && pop[i]!=null){
                 best=pop[i];
             }else
-            if(best!=null && pop!=null && pop[i]!=null && prob.isValid(pop[i])  && prob.fitness(best)<prob.fit(pop[i])){
+            if(best!=null && pop!=null && pop[i]!=null && prob.isValid(pop[i])  && prob.fitness(best)<prob.fitness(pop[i])){
                 best=pop[i];
             }
         }
     }
 
     private boolean[][] Selection(){//Roulette Wheel Selection
-        boolean[][] group=pop;
-        TreeMap<Double, boolean[]> wheel= new TreeMap<>();
-        Double percent=0;
 
-        for(int i=0;i<prop.getTotalItems(); i++){
-            wheel.put(percent, boolean[i]);
-            percent+=prop.fitness(i);
+        boolean[][] group = new boolean[pop.length][];
+        TreeMap<Double, boolean[]> wheel = new TreeMap<>();
+        double percent = 0.0;
+
+        for (int i = 0; i < pop.length; i++) {
+            
+            double f = prob.fitness(pop[i]);
+            wheel.put(percent, pop[i]);
+            percent += f;
+            
         }
 
-        int position;
-        for(int i=0;i<prop.getTotalItems(); i++){
-            position= rand.nextInt(percent);
-            group[i]=wheel.floorEntry(position).getValue();
+        for (int i = 0; i < group.length; i++) {
+            double pos = rand.nextDouble() * percent;
+            Map.Entry<Double, boolean[]> e = wheel.floorEntry(pos);
+            if (e == null) e = wheel.firstEntry();
+            group[i] = e.getValue();
         }
 
         return group;
@@ -101,7 +106,7 @@ public class GA{
             }else{
                 if(best==null){
                     best=pop[i];
-                }else if(best!=null && prob.fitness(best)<prob.fit(pop[i])){
+                }else if(best!=null && prob.fitness(best)<prob.fitness(pop[i])){
                     best=pop[i];
                 }
                  
