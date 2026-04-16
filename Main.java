@@ -73,13 +73,13 @@ public class Main {
     }
 
         private static void printsimpleResult(String file, GA al,KnapsackInstance inst){
-            boolean[] solution = al.getSol(100);
+            boolean[] solution = al.getSol(30);
 
             if (solution == null) {
                 System.out.println("GA returned no valid solution (null) for :"+ file);
             } else {
-                System.out.println("The result for "+file+" from GA: " + inst.fitness(solution));
-                
+                System.out.println("The result for "+file+" from GA: " + String.format("%.4f", inst.fitness(solution));
+                )
             }
         }
     
