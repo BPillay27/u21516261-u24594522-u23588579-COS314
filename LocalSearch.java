@@ -102,7 +102,7 @@ public class LocalSearch {
                 return solution;
             }
 
-            solution = bestNeighbour;
+            solution = bestNeighbour.clone();
         }
 
         return solution;
