@@ -1,7 +1,7 @@
 JAVAC = javac
 JAVA = java
 
-SOURCES = Map.java Experiment.java algorithmn.java
+SOURCES = $(wildcard *.java)
 CLASSES = $(SOURCES:.java=.class)
 
 .PHONY: all run clean store jar latex
@@ -9,22 +9,22 @@ CLASSES = $(SOURCES:.java=.class)
 all: $(CLASSES)
 
 %.class: %.java
-	$(JAVAC) $<
+	$(JAVAC) $< 
 
 run: all
-	$(JAVA) Experiment
+	$(JAVA) Main
 
 clean:
-	rm -f *.class *.zip
+	rm -f *.class *.zip *.jar
 
 store: 
-	$(JAVA) Experiment > ExperimentStorage.txt
+	$(JAVA) Main > ExperimentStorage.txt
 
 jar: all
-	jar cfe Experiment.jar Experiment *.class
+	jar cfe Prac2.jar Main *.class
 
-rj: Experiment.jar	
-	java -jar Experiment.jar
+rj: Prac2.jar	
+	java -jar Prac2.jar
 
 pdf: report.tex
 	pdflatex report.tex
@@ -38,7 +38,7 @@ list:
 unzip:
 	unzip sourceFiles.zip
 
-submission: report.pdf sourceFiles.zip Experiment.jar
-	zip u21516261_u24594522_u23588579.zip sourceFiles.zip Experiment.jar report.pdf
+submission: report.pdf sourceFiles.zip Prac2.jar
+	zip u21516261_u24594522_u23588579.zip sourceFiles.zip Prac2.jar report.pdf
 
 
