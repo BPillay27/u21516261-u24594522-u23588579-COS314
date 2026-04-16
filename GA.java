@@ -30,8 +30,15 @@ public class GA{
                     pop[i][j]=false;
                 }
             }
-            if(prob.isValid(pop[i])){
+            if(!prob.isValid(pop[i])){
                 --i;// Stop the for loop from continuing until this is valid
+            }else{
+                if(best==null){
+                    best=pop[i];
+                }else if(best==null && prob.fit(best)<prob.fit(pop[i])){
+                    best=pop[i];
+                }
+                 
             }
         }
     }
