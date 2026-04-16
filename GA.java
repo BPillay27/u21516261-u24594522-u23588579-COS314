@@ -1,4 +1,5 @@
-import java.util.*
+import java.util.*;
+
 public class GA{
     private KnapsackInstance prob;
     private boolean[] best;
@@ -9,13 +10,14 @@ public class GA{
         this.prob=prob;
         best=boolean[prob.getTotalItems()];
         pop=boolean[8][prob.getTotalItems()];
+        //Population has a size of 8
         this.seed=seed;
     }
 
     public boolean[] findSol(){
         initialpop(); //The random starting population
 
-        
+        return best;
     }
 
     private void initialpop(){
