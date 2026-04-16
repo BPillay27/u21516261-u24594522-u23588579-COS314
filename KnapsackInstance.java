@@ -96,12 +96,12 @@ public class KnapsackInstance {
             return 0;
         }
 
-        double totalWeight = 0.0;
+        double totalValue = 0.0;
         for (int i = 0; i < fit.length; i++) {
             if (valid[i] == true) {
-                totalWeight += fit[i].getWeight();
+                totalValue += fit[i].getValue();
             }
         }
-        return totalWeight;
+        return totalValue;
     }
 }
