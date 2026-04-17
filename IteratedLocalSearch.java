@@ -30,40 +30,52 @@ public class IteratedLocalSearch {
         return false;
     }
 
-    // flips a third of the bits (rounded down). If a perturb cannot be found, it
-    // just returns the original value.
     private boolean[] perturb(boolean[] solution) {
-        int flips = Math.max(1, ((solution.length / 2)+(solution.length / 4)));
+        boolean[] temp = solution.clone();
+        int flips = Math.max(1, solution.length / 5);
 
-        for (int attempt = 0; attempt < 200; attempt++) {
-            boolean[] temp = solution.clone();
-            ArrayList<Integer> used = new ArrayList<Integer>();
+        ArrayList<Integer> selected = new ArrayList<Integer>();
+        ArrayList<Integer> unselected = new ArrayList<Integer>();
 
-            while (used.size() < flips) {
-                int index = localSearch.getRand().nextInt(temp.length);
-
-                if (!used.contains(index)) {
-                    temp[index] = !temp[index];
-                    used.add(index);
-                }
-            }
-
-            if (localSearch.getInstance().isValid(temp) && !inHistory(temp)) {
-                history.add(temp.clone());
-                return temp;
+        for (int i = 0; i < temp.length; i++) {
+            if (temp[i]) {
+                selected.add(i);
+            } else {
+                unselected.add(i);
             }
         }
 
-        return solution.clone();
+        // First remove some chosen items
+        int removals = Math.min(flips, selected.size());
+        for (int i = 0; i < removals; i++) {
+            int pos = localSearch.getRand().nextInt(selected.size());
+            int index = selected.remove(pos);
+            temp[index] = false;
+        }
+
+        // Then try to add some unchosen items back if they fit
+        int additions = Math.min(flips, unselected.size());
+        for (int i = 0; i < additions; i++) {
+            int pos = localSearch.getRand().nextInt(unselected.size());
+            int index = unselected.remove(pos);
+
+            temp[index] = true;
+            if (!localSearch.getInstance().isValid(temp)) {
+                temp[index] = false;
+            }
+        }
+
+        return temp;
     }
 
     public boolean[] search() {
         boolean[] s1 = localSearch.generateValidSolution();
         boolean[] s_star = localSearch.search(s1);
         boolean[] best = s_star.clone();
+        history.clear();
         history.add(s_star.clone());
 
-        double worseAcceptanceChance = 0.80;
+        double worseAcceptanceChance = 0.15;
 
         for (int i = 0; i < ILS_iterations; i++) {
             boolean[] s_prime = perturb(s_star);
@@ -71,9 +83,13 @@ public class IteratedLocalSearch {
             if (Arrays.equals(s_prime, s_star)) {
                 continue;
             }
+
             boolean[] s_star_prime = localSearch.search(s_prime);
 
-            // acceptance criterion here
+            if (inHistory(s_star_prime)) {
+                continue;
+            }
+
             if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(best)) {
                 best = s_star_prime.clone();
             }
@@ -84,7 +100,9 @@ public class IteratedLocalSearch {
                 s_star = s_star_prime.clone();
             }
 
+            history.add(s_star.clone());
         }
+
         return best;
     }
 
