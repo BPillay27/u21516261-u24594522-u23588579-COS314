@@ -268,7 +268,7 @@ public class Main {
     }
 
     private static void printsimpleResult(String file, GA al, KnapsackInstance inst) {
-        boolean[] solution = al.getSol(85);
+        boolean[] solution = al.getSol(156);
 
         if (solution == null) {
             System.out.println("GA returned no valid solution (null) for :" + file);
