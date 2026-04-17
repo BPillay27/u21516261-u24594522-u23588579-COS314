@@ -10,7 +10,7 @@ public class GA{
     public GA(KnapsackInstance prob,long seed){
         this.prob=prob;
         best = null;
-        pop = new boolean[32][prob.getTotalItems()];
+        pop = new boolean[40][prob.getTotalItems()];
         this.seed=seed;
     }
 
@@ -31,18 +31,52 @@ public class GA{
             }
 
         //Mutation
+        /*
             for(int i=0;i<pop.length;i++){
-                if(rand.nextDouble()<0.3){
+                if(rand.nextDouble()<0.15){
                     int idx = rand.nextInt(prob.getTotalItems());
                     survival[i][idx] = !survival[i][idx];
                 }
             }
+        */
+       survival=Mutation(survival);
+
+
         // Population update: keep best from parents and children
             popUpdate(survival);
             
             update();
         }
         return best;
+    }
+
+    private boolean[][] Mutation(boolean[][] survival){
+        int n = prob.getTotalItems();
+        double bitMutRate = 1.0 / Math.max(1, n);
+        for (int i = 0; i < survival.length; i++) {
+            if (survival[i] == null) continue;
+            if (i == 0) continue;
+            boolean mutated = false;
+            for (int b = 0; b < n; b++) {
+                if (rand.nextDouble() < bitMutRate) {
+                    survival[i][b] = !survival[i][b];
+                    mutated = true;
+                }
+            }
+            if (mutated && !prob.isValid(survival[i])) {
+                
+                ArrayList<Integer> chosen = new ArrayList<>();
+                KnapsackItem[] items = prob.getItems();
+                for (int k = 0; k < n; k++) if (survival[i][k]) chosen.add(k);
+                chosen.sort((a, b) -> Double.compare(
+                    items[a].getValue()/items[a].getWeight(),
+                    items[b].getValue()/items[b].getWeight())); // ascending
+                while (!prob.isValid(survival[i]) && !chosen.isEmpty()) {
+                    survival[i][chosen.remove(0)] = false;
+                }
+            }
+        }
+        return survival;
     }
 
     private void popUpdate(boolean[][] survival){
@@ -115,33 +149,97 @@ public class GA{
 
      private boolean[][] Crossover(boolean[][] group){
         int n = prob.getTotalItems();
-        boolean[][] children=new boolean[pop.length][n];
+        boolean[][] children = new boolean[group.length][n];
+        KnapsackItem[] items = prob.getItems();
+        double cap = prob.getCapacity();
 
         for (int p = 0; p + 1 < group.length; p += 2) {
             boolean[] parent1 = group[p];
             boolean[] parent2 = group[p+1];
-            if (parent1 == null || parent2 == null) continue;
+            if (parent1 == null || parent2 == null) {
+                // copy parents through if one missing
+                children[p] = (parent1 != null) ? parent1.clone() : new boolean[n];
+                children[p+1] = (parent2 != null) ? parent2.clone() : new boolean[n];
+                continue;
+            }
 
             boolean[] child1 = new boolean[n];
             boolean[] child2 = new boolean[n];
-            
-            for(int i=0; i<n; i++){
-                if(i%2==0){
-                    child1[i]=parent1[i];
-                    child2[i]=parent2[i];
-                }else{
-                    child1[i]=parent2[i];
-                    child2[i]=parent1[i];
+
+            double used1 = 0.0;
+            double used2 = 0.0;
+
+            // keep intersection (items both parents include)
+            for (int i = 0; i < n; i++) {
+                if (parent1[i] && parent2[i]) {
+                    child1[i] = true;
+                    child2[i] = true;
+                    used1 += items[i].getWeight();
+                    used2 += items[i].getWeight();
                 }
             }
 
-            children[p]=child1;
-            children[p+1]=child2;
+            // candidate list: items present in at least one parent but not yet in child
+            ArrayList<Integer> cand = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                if ((parent1[i] || parent2[i]) && !child1[i]) cand.add(i);
+            }
 
-            
+            // sort candidates by value/weight ratio descending
+            cand.sort((a, b) -> Double.compare(items[b].getValue() / items[b].getWeight(),
+                                               items[a].getValue() / items[a].getWeight()));
+
+            // greedy fill for child1
+            for (int idx : cand) {
+                if (used1 + items[idx].getWeight() <= cap) {
+                    child1[idx] = true;
+                    used1 += items[idx].getWeight();
+                }
+            }
+
+            // for child2, shuffle candidate order slightly to diversify then greedy fill
+            ArrayList<Integer> cand2 = new ArrayList<>(cand);
+            cand2.sort((a, b) -> {
+                double ra = items[a].getValue() / items[a].getWeight() + rand.nextDouble() * 1e-6;
+                double rb = items[b].getValue() / items[b].getWeight() + rand.nextDouble() * 1e-6;
+                return Double.compare(rb, ra);
+            });
+            for (int idx : cand2) {
+                if (used2 + items[idx].getWeight() <= cap) {
+                    child2[idx] = true;
+                    used2 += items[idx].getWeight();
+                }
+            }
+
+            // final safety: if any child still overweight, repair by removing lowest ratio selected items
+            if (!prob.isValid(child1)) {
+                ArrayList<Integer> chosen = new ArrayList<>();
+                for (int i = 0; i < n; i++) if (child1[i]) chosen.add(i);
+                chosen.sort((a, b) -> Double.compare(items[a].getValue() / items[a].getWeight(),
+                                                      items[b].getValue() / items[b].getWeight()));
+                while (!prob.isValid(child1) && !chosen.isEmpty()) {
+                    int remove = chosen.remove(0);
+                    child1[remove] = false;
+                }
+            }
+            if (!prob.isValid(child2)) {
+                ArrayList<Integer> chosen = new ArrayList<>();
+                for (int i = 0; i < n; i++) if (child2[i]) chosen.add(i);
+                chosen.sort((a, b) -> Double.compare(items[a].getValue() / items[a].getWeight(),
+                                                      items[b].getValue() / items[b].getWeight()));
+                while (!prob.isValid(child2) && !chosen.isEmpty()) {
+                    int remove = chosen.remove(0);
+                    child2[remove] = false;
+                }
+            }
+
+            children[p] = child1;
+            children[p+1] = child2;
         }
-        if(pop.length%2==1){
-            children[pop.length-1]=group[pop.length-1];
+
+        // if odd number, copy last parent through
+        if (group.length % 2 == 1) {
+            children[group.length - 1] = (group[group.length - 1] != null) ? group[group.length - 1].clone() : new boolean[n];
         }
 
         return children;
