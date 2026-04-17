@@ -112,6 +112,8 @@ public class GA{
         }
     }
 
+    private void 
+
 
     private boolean[][] Selection(){//Roulette Wheel Selection & Elitism
 
