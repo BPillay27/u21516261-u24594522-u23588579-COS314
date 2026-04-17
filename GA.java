@@ -10,7 +10,7 @@ public class GA{
     public GA(KnapsackInstance prob,long seed){
         this.prob=prob;
         best = null;
-        pop = new boolean[60][prob.getTotalItems()];
+        pop = new boolean[26][prob.getTotalItems()];
         this.seed=seed;
     }
 
@@ -45,6 +45,7 @@ public class GA{
         // Population update: keep best from parents and children
             popUpdate(survival);
             
+            update(survival);
             update();
         }
         return best;
@@ -113,7 +114,14 @@ public class GA{
     }
 
     private void update(boolean[][] survival){
-
+        for(int i=0;i<survival.length;i++){
+            if(best==null && survival[i]!=null && prob.isValid(survival[i]) ){
+                best=survival[i];
+            }else
+            if(best!=null && survival!=null && survival[i]!=null && prob.isValid(survival[i])  && prob.fitness(best)<prob.fitness(survival[i])){
+                best=survival[i];
+            }
+        }
     }
 
 

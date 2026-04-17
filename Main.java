@@ -258,7 +258,7 @@ public class Main {
                     LS_iterations);
             list.add(ITL_10);
 
-            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, inst1, ITL_iterations,
+            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, inst, ITL_iterations,
                     LS_iterations);
             list.add(ITL_11);
 
