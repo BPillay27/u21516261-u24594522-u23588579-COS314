@@ -10,7 +10,7 @@ public class GA{
     public GA(KnapsackInstance prob,long seed){
         this.prob=prob;
         best = null;
-        pop = new boolean[60][prob.getTotalItems()];
+        pop = new boolean[55][prob.getTotalItems()];
         this.seed=seed;
     }
 
@@ -214,7 +214,7 @@ public class GA{
                     used2 += items[idx].getWeight();
                 }
             }
-
+            /*
             // final safety: if any child still overweight, repair by removing lowest ratio selected items
             if (!prob.isValid(child1)) {
                 ArrayList<Integer> chosen = new ArrayList<>();
@@ -226,6 +226,7 @@ public class GA{
                     child1[remove] = false;
                 }
             }
+            */
             if (!prob.isValid(child2)) {
                 ArrayList<Integer> chosen = new ArrayList<>();
                 for (int i = 0; i < n; i++) if (child2[i]) chosen.add(i);
