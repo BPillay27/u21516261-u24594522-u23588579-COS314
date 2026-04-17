@@ -36,9 +36,9 @@ public class GA{
 
 
         // Population update: keep best from parents and children
+        update(survival);
             popUpdate(survival);
             
-            update(survival);
             update();
         }
         return best;

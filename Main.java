@@ -310,7 +310,7 @@ public class Main {
 
         for (int i = 0; i < testNo; i++) {
             long start = System.nanoTime();
-            solution = al.getSol(156);
+            solution = al.getSol(160);
             long end = System.nanoTime();
 
             if (solution == null) {
