@@ -10,7 +10,7 @@ public class GA{
     public GA(KnapsackInstance prob,long seed){
         this.prob=prob;
         best = null;
-        pop = new boolean[40][prob.getTotalItems()];
+        pop = new boolean[60][prob.getTotalItems()];
         this.seed=seed;
     }
 
@@ -112,7 +112,9 @@ public class GA{
         }
     }
 
-    private void 
+    private void update(boolean[][] survival){
+
+    }
 
 
     private boolean[][] Selection(){//Roulette Wheel Selection & Elitism
