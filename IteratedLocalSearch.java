@@ -30,10 +30,10 @@ public class IteratedLocalSearch {
         return false;
     }
 
-    // flips a quarter of the bits (rounded down). If a perturb cannot be found, it
+    // flips a third of the bits (rounded down). If a perturb cannot be found, it
     // just returns the original value.
     private boolean[] perturb(boolean[] solution) {
-        int flips = Math.max(1, solution.length / 4);
+        int flips = Math.max(1, solution.length / 2);
 
         for (int attempt = 0; attempt < 20; attempt++) {
             boolean[] temp = solution.clone();
@@ -60,7 +60,10 @@ public class IteratedLocalSearch {
     public boolean[] search() {
         boolean[] s1 = localSearch.generateValidSolution();
         boolean[] s_star = localSearch.search(s1);
+        boolean[] best = s_star.clone();
         history.add(s_star.clone());
+
+        double worseAcceptanceChance = 0.50;
 
         for (int i = 0; i < ILS_iterations; i++) {
             boolean[] s_prime = perturb(s_star);
@@ -71,12 +74,18 @@ public class IteratedLocalSearch {
             boolean[] s_star_prime = localSearch.search(s_prime);
 
             // acceptance criterion here
+            if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(best)) {
+                best = s_star_prime.clone();
+            }
+
             if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(s_star)) {
+                s_star = s_star_prime.clone();
+            } else if (localSearch.getRand().nextDouble() < worseAcceptanceChance) {
                 s_star = s_star_prime.clone();
             }
 
         }
-        return s_star;
+        return best;
     }
 
     public double getFitness(boolean[] input) {

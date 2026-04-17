@@ -86,9 +86,9 @@ public class Main {
         try {
             long seed = 1234;
 
-            //Just f7 at ITL_iterations = 100, LS_iterations = 40
+            // Just f7 at ITL_iterations = 100, LS_iterations = 40
             int ITL_iterations = 100;
-            int LS_iterations = 50;
+            int LS_iterations = 70;
 
             ArrayList<IteratedLocalSearch> list = new ArrayList<>();
 
@@ -132,15 +132,23 @@ public class Main {
                     LS_iterations);
             list.add(ITL_10);
 
-             IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, "Datasets/knapPI_1_100_1000_1", ITL_iterations,
+            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, "Datasets/knapPI_1_100_1000_1", ITL_iterations,
                     LS_iterations);
             list.add(ITL_11);
 
+            int count = 1;
             for (IteratedLocalSearch ITL : list) {
-                System.out.println(ITL.getFitness(ITL.search()));
+                String info = "";
+                if (count == 11) {
+                    info = "PI: ";
+                } else {
+                    info = "f" + count + ": ";
+                }
+                System.out.println(info + ITL.getFitness(ITL.search()));
+                count++;
             }
         } catch (Exception e) {
-            System.out.println("An error occurred while test ILS. Message: " + e.getMessage());
+            System.out.println("An error occurred while testing ILS. Message: " + e.getMessage());
         }
     }
 
