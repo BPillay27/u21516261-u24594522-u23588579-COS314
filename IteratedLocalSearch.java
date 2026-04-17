@@ -43,9 +43,9 @@ public class IteratedLocalSearch {
     // flips a third of the bits (rounded down). If a perturb cannot be found, it
     // just returns the original value.
     private boolean[] perturb(boolean[] solution) {
-        int flips = Math.max(1, solution.length / 2);
+        int flips = Math.max(1, ((solution.length / 2)+(solution.length / 4)));
 
-        for (int attempt = 0; attempt < 20; attempt++) {
+        for (int attempt = 0; attempt < 200; attempt++) {
             boolean[] temp = solution.clone();
             ArrayList<Integer> used = new ArrayList<Integer>();
 
@@ -73,7 +73,7 @@ public class IteratedLocalSearch {
         boolean[] best = s_star.clone();
         history.add(s_star.clone());
 
-        double worseAcceptanceChance = 0.50;
+        double worseAcceptanceChance = 0.80;
 
         for (int i = 0; i < ILS_iterations; i++) {
             boolean[] s_prime = perturb(s_star);

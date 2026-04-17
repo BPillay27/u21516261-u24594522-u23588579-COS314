@@ -94,28 +94,69 @@ public class LocalSearch {
     }
 
     // Get the valid neighbours of the current solution.
-    private boolean[] getNeighbours(boolean[] solution) {
-        ArrayList<boolean[]> neighbours = new ArrayList<>();
+    // private boolean[] getNeighbours(boolean[] solution) {
+    // ArrayList<boolean[]> neighbours = new ArrayList<>();
 
+    // for (int i = 0; i < solution.length; i++) {
+    // boolean[] neighbour = solution.clone();
+    // neighbour[i] = !neighbour[i];
+
+    // if (instance.isValid(neighbour)) {
+    // neighbours.add(neighbour);
+    // }
+    // }
+
+    // if (neighbours.isEmpty()) {
+    // return null;
+    // }
+
+    // boolean[] best = neighbours.get(0);
+    // for (int i = 0; i < neighbours.size(); i++) {
+    // if (instance.fitness(best) <= instance.fitness(neighbours.get(i))) {
+    // best = neighbours.get(i);
+    // }
+    // }
+    // return best;
+    // }
+
+    private boolean[] getNeighbours(boolean[] solution) {
+        boolean[] best = null;
+
+        // single-bit neighbours
         for (int i = 0; i < solution.length; i++) {
             boolean[] neighbour = solution.clone();
             neighbour[i] = !neighbour[i];
 
             if (instance.isValid(neighbour)) {
-                neighbours.add(neighbour);
+                if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
+                    best = neighbour;
+                }
             }
         }
 
-        if (neighbours.isEmpty()) {
-            return null;
-        }
+        // swap neighbours
+        for (int i = 0; i < solution.length; i++) {
+            if (!solution[i]) {
+                continue;
+            }
 
-        boolean[] best = neighbours.get(0);
-        for (int i = 0; i < neighbours.size(); i++) {
-            if (instance.fitness(best) <= instance.fitness(neighbours.get(i))) {
-                best = neighbours.get(i);
+            for (int j = 0; j < solution.length; j++) {
+                if (solution[j]) {
+                    continue;
+                }
+
+                boolean[] neighbour = solution.clone();
+                neighbour[i] = false;
+                neighbour[j] = true;
+
+                if (instance.isValid(neighbour)) {
+                    if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
+                        best = neighbour;
+                    }
+                }
             }
         }
+
         return best;
     }
 
@@ -137,7 +178,7 @@ public class LocalSearch {
         return solution;
     }
 
-    public double getFitness(boolean[] input){
+    public double getFitness(boolean[] input) {
         return instance.fitness(input);
     }
     // page 26 and page 41
