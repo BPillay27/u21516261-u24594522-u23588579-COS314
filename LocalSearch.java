@@ -53,6 +53,22 @@ public class LocalSearch {
         }
     }
 
+    public LocalSearch(long seed, KnapsackInstance file, int numIterations) {
+        try {
+            
+            this.seed = seed;
+            this.rand = new Random(seed);
+            this.instance =file;
+            this.numIterations = numIterations;
+        } catch (Exception e) {
+            System.out.println("An error has occurred while making the Local Search. Error: " + e.getMessage());
+            this.numIterations = 0;
+            this.instance = null;
+            this.rand = null;
+            this.seed = 0;
+        }
+    }
+
     public long getSeed() {
         return seed;
     }

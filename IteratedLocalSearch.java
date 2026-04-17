@@ -16,6 +16,16 @@ public class IteratedLocalSearch {
         }
     }
 
+    public IteratedLocalSearch(long seed, KnapsackInstance file, int ILS_iterations, int LS_iterations) {
+        localSearch = new LocalSearch(seed, file, LS_iterations);
+
+        if (ILS_iterations < 0) {
+            this.ILS_iterations = 0;
+        } else {
+            this.ILS_iterations = ILS_iterations;
+        }
+    }
+
     public LocalSearch getSearch() {
         return localSearch;
     }
