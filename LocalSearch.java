@@ -8,19 +8,28 @@ public class LocalSearch {
     private long seed;
 
     public boolean[] generateValidSolution() {
-        boolean[] temp = new boolean[instance.getTotalItems()];
+        boolean[] output = new boolean[instance.getTotalItems()];
+        ArrayList<Integer> used = new ArrayList<>();
 
-        do {
-            for (int i = 0; i < instance.getTotalItems(); i++) {
-                temp[i] = rand.nextBoolean();
+        while (used.size() < output.length) {
+            int index = rand.nextInt(output.length);
+
+            if (used.contains(index)) {
+                continue;
             }
-        } while (!instance.isValid(temp));
 
-        return temp;
+            used.add(index);
+            output[index] = true;
+
+            if (!instance.isValid(output)) {
+                output[index] = false;
+            }
+        }
+        return output;
     }
 
     // seed and file is self-explanatory, numIterations is the stopping condition
-    // for the loop (run for this many iterations) <3
+    // for the loop (run for this many iterations)
     public LocalSearch(long seed, String file, int numIterations) {
         try {
             if (file.isEmpty()) {
@@ -37,10 +46,10 @@ public class LocalSearch {
             this.numIterations = numIterations;
         } catch (Exception e) {
             System.out.println("An error has occurred while making the Local Search. Error: " + e.getMessage());
-            numIterations = 0;
-            instance = null;
-            rand = null;
-            seed = 0;
+            this.numIterations = 0;
+            this.instance = null;
+            this.rand = null;
+            this.seed = 0;
         }
     }
 
@@ -64,7 +73,7 @@ public class LocalSearch {
         numIterations = num;
     }
 
-    public Random getRand(){
+    public Random getRand() {
         return rand;
     }
 
@@ -98,6 +107,10 @@ public class LocalSearch {
         for (int i = 0; i < numIterations; i++) {
             boolean[] bestNeighbour = getNeighbours(solution);
 
+            if (bestNeighbour == null) {
+                return solution;
+            }
+
             if (instance.fitness(bestNeighbour) <= instance.fitness(solution)) {
                 return solution;
             }
@@ -106,6 +119,10 @@ public class LocalSearch {
         }
 
         return solution;
+    }
+
+    public double getFitness(boolean[] input){
+        return instance.fitness(input);
     }
     // page 26 and page 41
 

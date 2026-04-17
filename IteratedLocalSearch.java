@@ -6,9 +6,14 @@ public class IteratedLocalSearch {
     private int ILS_iterations;
     private ArrayList<boolean[]> history = new ArrayList<>();
 
-    public IteratedLocalSearch(long seed, String file, int LS_iterations, int ILS_iterations) {
+    public IteratedLocalSearch(long seed, String file, int ILS_iterations, int LS_iterations) {
         localSearch = new LocalSearch(seed, file, LS_iterations);
-        this.ILS_iterations = ILS_iterations;
+
+        if (ILS_iterations < 0) {
+            this.ILS_iterations = 0;
+        } else {
+            this.ILS_iterations = ILS_iterations;
+        }
     }
 
     public LocalSearch getSearch() {
@@ -25,25 +30,28 @@ public class IteratedLocalSearch {
         return false;
     }
 
-    // flips a quarter of the bits (rounded up). If a perturb cannot be found, it
+    // flips a quarter of the bits (rounded down). If a perturb cannot be found, it
     // just returns the original value.
     private boolean[] perturb(boolean[] solution) {
-        boolean[] temp = solution.clone();
-        int flips = Math.max(1, temp.length / 4);
-        ArrayList<Integer> used = new ArrayList<>();
+        int flips = Math.max(1, solution.length / 4);
 
-        while (used.size() < flips) {
-            int index = localSearch.getRand().nextInt(temp.length);
+        for (int attempt = 0; attempt < 20; attempt++) {
+            boolean[] temp = solution.clone();
+            ArrayList<Integer> used = new ArrayList<Integer>();
 
-            if (!used.contains(index)) {
-                temp[index] = !temp[index];
-                used.add(index);
+            while (used.size() < flips) {
+                int index = localSearch.getRand().nextInt(temp.length);
+
+                if (!used.contains(index)) {
+                    temp[index] = !temp[index];
+                    used.add(index);
+                }
             }
-        }
 
-        if (localSearch.getInstance().isValid(temp) && !inHistory(temp)) {
-            history.add(temp.clone());
-            return temp;
+            if (localSearch.getInstance().isValid(temp) && !inHistory(temp)) {
+                history.add(temp.clone());
+                return temp;
+            }
         }
 
         return solution.clone();
@@ -52,9 +60,14 @@ public class IteratedLocalSearch {
     public boolean[] search() {
         boolean[] s1 = localSearch.generateValidSolution();
         boolean[] s_star = localSearch.search(s1);
+        history.add(s_star.clone());
 
         for (int i = 0; i < ILS_iterations; i++) {
             boolean[] s_prime = perturb(s_star);
+
+            if (Arrays.equals(s_prime, s_star)) {
+                continue;
+            }
             boolean[] s_star_prime = localSearch.search(s_prime);
 
             // acceptance criterion here
@@ -64,6 +77,9 @@ public class IteratedLocalSearch {
 
         }
         return s_star;
+    }
 
+    public double getFitness(boolean[] input) {
+        return localSearch.getFitness(input);
     }
 }
