@@ -93,6 +93,134 @@ public class LocalSearch {
         return rand;
     }
 
+    // private boolean[] getNeighbours(boolean[] solution) {
+    // boolean[] best = null;
+
+    // // single-bit neighbours
+    // for (int i = 0; i < solution.length; i++) {
+    // boolean[] neighbour = solution.clone();
+    // neighbour[i] = !neighbour[i];
+
+    // if (instance.isValid(neighbour)) {
+    // if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
+    // best = neighbour;
+    // }
+    // }
+    // }
+
+    // // swap neighbours
+    // for (int i = 0; i < solution.length; i++) {
+    // if (!solution[i]) {
+    // continue;
+    // }
+
+    // for (int j = 0; j < solution.length; j++) {
+    // if (solution[j]) {
+    // continue;
+    // }
+
+    // boolean[] neighbour = solution.clone();
+    // neighbour[i] = false;
+    // neighbour[j] = true;
+
+    // if (instance.isValid(neighbour)) {
+    // if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
+    // best = neighbour;
+    // }
+    // }
+    // }
+    // }
+
+    // for (int i = 0; i < solution.length; i++) {
+    // if (!solution[i]) {
+    // continue;
+    // }
+
+    // for (int j = 0; j < solution.length; j++) {
+    // if (solution[j] || j == i) {
+    // continue;
+    // }
+
+    // for (int k = j + 1; k < solution.length; k++) {
+    // if (solution[k] || k == i) {
+    // continue;
+    // }
+
+    // boolean[] neighbour = solution.clone();
+    // neighbour[i] = false;
+    // neighbour[j] = true;
+    // neighbour[k] = true;
+
+    // if (instance.isValid(neighbour)) {
+    // if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
+    // best = neighbour;
+    // }
+    // }
+    // }
+    // }
+    // }
+
+    // return best;
+    // }
+
+    // private boolean[] getNeighbours(boolean[] solution) {
+    // boolean[] best = null;
+
+    // // single-bit neighbours
+    // for (int i = 0; i < solution.length; i++) {
+    // boolean[] neighbour = solution.clone();
+    // neighbour[i] = !neighbour[i];
+
+    // if (instance.isValid(neighbour)) {
+    // if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
+    // best = neighbour;
+    // }
+    // }
+    // }
+
+    // // 1-for-1 swap neighbours
+    // for (int i = 0; i < solution.length; i++) {
+    // if (!solution[i]) {
+    // continue;
+    // }
+
+    // for (int j = 0; j < solution.length; j++) {
+    // if (solution[j]) {
+    // continue;
+    // }
+
+    // boolean[] neighbour = solution.clone();
+    // neighbour[i] = false;
+    // neighbour[j] = true;
+
+    // if (instance.isValid(neighbour)) {
+    // if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
+    // best = neighbour;
+    // }
+    // }
+    // }
+    // }
+
+    // return best;
+    // }
+
+    // private boolean[] getNeighbours(boolean[] solution) {
+    // boolean[] best = null;
+
+    // for (int i = 0; i < solution.length; i++) {
+    // boolean[] neighbour = solution.clone();
+    // neighbour[i] = !neighbour[i];
+
+    // if (instance.isValid(neighbour)) {
+    // if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
+    // best = neighbour;
+    // }
+    // }
+    // }
+
+    // return best;
+    // }
+
     private boolean[] getNeighbours(boolean[] solution) {
         boolean[] best = null;
 
@@ -108,7 +236,7 @@ public class LocalSearch {
             }
         }
 
-        // swap neighbours
+        // 1-for-1 swap neighbours
         for (int i = 0; i < solution.length; i++) {
             if (!solution[i]) {
                 continue;
@@ -126,35 +254,6 @@ public class LocalSearch {
                 if (instance.isValid(neighbour)) {
                     if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
                         best = neighbour;
-                    }
-                }
-            }
-        }
-
-        for (int i = 0; i < solution.length; i++) {
-            if (!solution[i]) {
-                continue;
-            }
-
-            for (int j = 0; j < solution.length; j++) {
-                if (solution[j] || j == i) {
-                    continue;
-                }
-
-                for (int k = j + 1; k < solution.length; k++) {
-                    if (solution[k] || k == i) {
-                        continue;
-                    }
-
-                    boolean[] neighbour = solution.clone();
-                    neighbour[i] = false;
-                    neighbour[j] = true;
-                    neighbour[k] = true;
-
-                    if (instance.isValid(neighbour)) {
-                        if (best == null || instance.fitness(neighbour) > instance.fitness(best)) {
-                            best = neighbour;
-                        }
                     }
                 }
             }
