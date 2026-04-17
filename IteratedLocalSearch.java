@@ -41,9 +41,9 @@ public class IteratedLocalSearch {
     }
 
     private boolean[] perturb(boolean[] solution) {
-        boolean[] temp = solution.clone();
-        int flips = Math.max(1, solution.length / 5);
+    boolean[] temp = solution.clone();
 
+    for (int attempt = 0; attempt < 100; attempt++) {
         ArrayList<Integer> selected = new ArrayList<Integer>();
         ArrayList<Integer> unselected = new ArrayList<Integer>();
 
@@ -55,28 +55,73 @@ public class IteratedLocalSearch {
             }
         }
 
-        // First remove some chosen items
-        int removals = Math.min(flips, selected.size());
-        for (int i = 0; i < removals; i++) {
-            int pos = localSearch.getRand().nextInt(selected.size());
-            int index = selected.remove(pos);
-            temp[index] = false;
+        if (selected.isEmpty() && unselected.isEmpty()) {
+            return temp;
         }
 
-        // Then try to add some unchosen items back if they fit
-        int additions = Math.min(flips, unselected.size());
-        for (int i = 0; i < additions; i++) {
-            int pos = localSearch.getRand().nextInt(unselected.size());
-            int index = unselected.remove(pos);
+        boolean[] candidate = temp.clone();
+        int moveType = localSearch.getRand().nextInt(3);
 
-            temp[index] = true;
-            if (!localSearch.getInstance().isValid(temp)) {
-                temp[index] = false;
+        if (moveType == 0) {
+            if (selected.size() < 1 || unselected.size() < 1) {
+                continue;
             }
+
+            int removeIndex = selected.get(localSearch.getRand().nextInt(selected.size()));
+            int addIndex = unselected.get(localSearch.getRand().nextInt(unselected.size()));
+
+            candidate[removeIndex] = false;
+            candidate[addIndex] = true;
         }
 
-        return temp;
+        else if (moveType == 1) {
+            if (selected.size() < 1 || unselected.size() < 2) {
+                continue;
+            }
+
+            int removeIndex = selected.get(localSearch.getRand().nextInt(selected.size()));
+
+            int addPos1 = localSearch.getRand().nextInt(unselected.size());
+            int addPos2;
+            do {
+                addPos2 = localSearch.getRand().nextInt(unselected.size());
+            } while (addPos2 == addPos1);
+
+            int addIndex1 = unselected.get(addPos1);
+            int addIndex2 = unselected.get(addPos2);
+
+            candidate[removeIndex] = false;
+            candidate[addIndex1] = true;
+            candidate[addIndex2] = true;
+        }
+
+        else {
+            if (selected.size() < 2 || unselected.size() < 1) {
+                continue;
+            }
+
+            int removePos1 = localSearch.getRand().nextInt(selected.size());
+            int removePos2;
+            do {
+                removePos2 = localSearch.getRand().nextInt(selected.size());
+            } while (removePos2 == removePos1);
+
+            int removeIndex1 = selected.get(removePos1);
+            int removeIndex2 = selected.get(removePos2);
+            int addIndex = unselected.get(localSearch.getRand().nextInt(unselected.size()));
+
+            candidate[removeIndex1] = false;
+            candidate[removeIndex2] = false;
+            candidate[addIndex] = true;
+        }
+
+        if (localSearch.getInstance().isValid(candidate) && !Arrays.equals(candidate, solution)) {
+            return candidate;
+        }
     }
+
+    return temp;
+}
 
     public boolean[] search() {
         boolean[] s1 = localSearch.generateValidSolution();
@@ -85,7 +130,7 @@ public class IteratedLocalSearch {
         history.clear();
         history.add(s_star.clone());
 
-        double worseAcceptanceChance = 0.15;
+        double worseAcceptanceChance = 0.6;
 
         for (int i = 0; i < ILS_iterations; i++) {
             boolean[] s_prime = perturb(s_star);
@@ -96,21 +141,22 @@ public class IteratedLocalSearch {
 
             boolean[] s_star_prime = localSearch.search(s_prime);
 
-            if (inHistory(s_star_prime)) {
-                continue;
-            }
-
             if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(best)) {
                 best = s_star_prime.clone();
             }
 
-            if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(s_star)) {
-                s_star = s_star_prime.clone();
-            } else if (localSearch.getRand().nextDouble() < worseAcceptanceChance) {
-                s_star = s_star_prime.clone();
-            }
+            if (!inHistory(s_star_prime)) {
+                if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(s_star)) {
+                    s_star = s_star_prime.clone();
+                } else if (localSearch.getRand().nextDouble() < worseAcceptanceChance) {
+                    s_star = s_star_prime.clone();
+                }
 
-            history.add(s_star.clone());
+                history.add(s_star.clone());
+                if (history.size() > 20) {
+                    history.remove(0);
+                }
+            }
         }
 
         return best;
