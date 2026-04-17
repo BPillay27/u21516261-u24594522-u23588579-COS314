@@ -267,6 +267,7 @@ public class Main {
     }
 
     private static void printsimpleResult(String file, GA al, KnapsackInstance inst) {
+<<<<<<< HEAD
         boolean[] solution = al.getSol(70);
 
         if (solution == null) {
