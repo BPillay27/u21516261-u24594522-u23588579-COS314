@@ -88,7 +88,7 @@ public class Main {
 
             // Just f7 at ITL_iterations = 100, LS_iterations = 40
             int ITL_iterations = 100;
-            int LS_iterations = 70;
+            int LS_iterations = 100;
 
             ArrayList<IteratedLocalSearch> list = new ArrayList<>();
 
