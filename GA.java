@@ -31,14 +31,7 @@ public class GA{
             }
 
         //Mutation
-        /*
-            for(int i=0;i<pop.length;i++){
-                if(rand.nextDouble()<0.15){
-                    int idx = rand.nextInt(prob.getTotalItems());
-                    survival[i][idx] = !survival[i][idx];
-                }
-            }
-        */
+        
        survival=Mutation(survival);
 
 
@@ -222,30 +215,7 @@ public class GA{
                     used2 += items[idx].getWeight();
                 }
             }
-            /*
-            // final safety: if any child still overweight, repair by removing lowest ratio selected items
-            if (!prob.isValid(child1)) {
-                ArrayList<Integer> chosen = new ArrayList<>();
-                for (int i = 0; i < n; i++) if (child1[i]) chosen.add(i);
-                chosen.sort((a, b) -> Double.compare(items[a].getValue() / items[a].getWeight(),
-                                                      items[b].getValue() / items[b].getWeight()));
-                while (!prob.isValid(child1) && !chosen.isEmpty()) {
-                    int remove = chosen.remove(0);
-                    child1[remove] = false;
-                }
-            }
-            */
-            if (!prob.isValid(child2)) {
-                ArrayList<Integer> chosen = new ArrayList<>();
-                for (int i = 0; i < n; i++) if (child2[i]) chosen.add(i);
-                chosen.sort((a, b) -> Double.compare(items[a].getValue() / items[a].getWeight(),
-                                                      items[b].getValue() / items[b].getWeight()));
-                while (!prob.isValid(child2) && !chosen.isEmpty()) {
-                    int remove = chosen.remove(0);
-                    child2[remove] = false;
-                }
-            }
-
+            
             children[p] = child1;
             children[p+1] = child2;
         }

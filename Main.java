@@ -243,7 +243,7 @@ public class Main {
                     LS_iterations);
             list.add(ITL_10);
 
-            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, inst1, ITL_iterations,
+            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, inst, ITL_iterations,
                     LS_iterations);
             list.add(ITL_11);
 
@@ -267,8 +267,7 @@ public class Main {
     }
 
     private static void printsimpleResult(String file, GA al, KnapsackInstance inst) {
-<<<<<<< HEAD
-        boolean[] solution = al.getSol(70);
+        boolean[] solution = al.getSol(85);
 
         if (solution == null) {
             System.out.println("GA returned no valid solution (null) for :" + file);
