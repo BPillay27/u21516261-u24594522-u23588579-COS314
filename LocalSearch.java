@@ -55,10 +55,10 @@ public class LocalSearch {
 
     public LocalSearch(long seed, KnapsackInstance file, int numIterations) {
         try {
-            
+
             this.seed = seed;
             this.rand = new Random(seed);
-            this.instance =file;
+            this.instance = file;
             this.numIterations = numIterations;
         } catch (Exception e) {
             System.out.println("An error has occurred while making the Local Search. Error: " + e.getMessage());
@@ -96,7 +96,6 @@ public class LocalSearch {
     private boolean[] getNeighbours(boolean[] solution) {
         boolean[] best = null;
 
-        // single-bit neighbours
         for (int i = 0; i < solution.length; i++) {
             boolean[] neighbour = solution.clone();
             neighbour[i] = !neighbour[i];
@@ -108,7 +107,6 @@ public class LocalSearch {
             }
         }
 
-        // swap neighbours
         for (int i = 0; i < solution.length; i++) {
             if (!solution[i]) {
                 continue;
@@ -155,6 +153,4 @@ public class LocalSearch {
     public double getFitness(boolean[] input) {
         return instance.fitness(input);
     }
-    // page 26 and page 41
-
 }

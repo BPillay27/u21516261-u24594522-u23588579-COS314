@@ -138,7 +138,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //testILS();
+        // testILS();
         String file = "Datasets/knapPI_1_100_1000_1";
         long seed = 23;
         Scanner scanner = new java.util.Scanner(System.in);
@@ -219,7 +219,7 @@ public class Main {
                     LS_iterations);
             list.add(ITL_4);
 
-            IteratedLocalSearch ITL_5 = new IteratedLocalSearch(seed,inst5, ITL_iterations,
+            IteratedLocalSearch ITL_5 = new IteratedLocalSearch(seed, inst5, ITL_iterations,
                     LS_iterations);
             list.add(ITL_5);
 
@@ -243,18 +243,19 @@ public class Main {
                     LS_iterations);
             list.add(ITL_10);
 
-            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, inst1, ITL_iterations,
+            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, inst, ITL_iterations,
                     LS_iterations);
             list.add(ITL_11);
 
-            int count = 1;
+            String[] files = { "f1_l-d_kp_10_269", "f2_l-d_kp_20_878", "f3_l-d_kp_4_20",
+                    "f4_l-d_kp_4_11", "f5_l-d_kp_15_375", "f6_l-d_kp_10_60",
+                    "f7_l-d_kp_7_50", "f8_l-d_kp_23_10000", "f9_l-d_kp_5_80",
+                    "f10_l-d_kp_20_879", "knapPI_1_100_1000_1" };
+
+            int count = 0;
             for (IteratedLocalSearch ITL : list) {
-                String info = "";
-                if (count == 11) {
-                    info = "PI: ";
-                } else {
-                    info = "f" + count + ": ";
-                }
+                String info = files[count] + " : ";
+
                 System.out.println(info + ITL.getFitness(ITL.search()));
                 count++;
             }
