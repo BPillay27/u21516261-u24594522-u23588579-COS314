@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Main {
+    static int testNo=1;
     private void testGA() {
         String file = "Datasets/knapPI_1_100_1000_1";
         long seed = 23;
@@ -140,10 +141,10 @@ public class Main {
     public static void main(String[] args) {
         // testILS();
         String file = "Datasets/knapPI_1_100_1000_1";
-        long seed = 23;
+        long seed = 2;
         Scanner scanner = new java.util.Scanner(System.in);
 
-        System.out.print("Enter seed (press Enter to use default 1234): ");
+        System.out.print("Enter seed (press space then Enter to use default 2): ");
         String line = scanner.next();
 
         System.out.println(line);
@@ -197,6 +198,8 @@ public class Main {
             printsimpleResult("f9_l-d_kp_5_80", simple9, inst9);
             printsimpleResult("f10_l-d_kp_20_879", simple10, inst10);
             printsimpleResult("knapPI_1_100_1000_1", simple, inst);
+
+            System.out.println("\n\n");
 
             int ITL_iterations = 100;
             int LS_iterations = 70;
@@ -254,9 +257,37 @@ public class Main {
 
             int count = 0;
             for (IteratedLocalSearch ITL : list) {
-                String info = files[count] + " : ";
+                boolean[] solution = null;
+                double avg = 0.0;
+                long totalNano = 0L;
+                int successfulRuns = 0;
+                for (int i = 0; i < testNo; i++) {
+                    long start = System.nanoTime();
+                    solution = ITL.search();
+                    long end = System.nanoTime();
 
-                System.out.println(info + ITL.getFitness(ITL.search()));
+                    if (solution == null) {
+                        System.out.println("ILS returned no valid solution (null) for : " + files[count] + " (run " + (i+1) + ")");
+                        continue;
+                    }
+
+                    successfulRuns++;
+                    totalNano += (end - start);
+                    avg += ITL.getFitness(solution);
+                }
+
+                if (successfulRuns == 0) {
+                    System.out.println("All runs failed for " + files[count] + "; skipping.");
+                    count++;
+                    continue;
+                }
+
+                avg = avg / successfulRuns;
+                double avgSeconds = totalNano / (double) successfulRuns / 1_000_000_000.0;
+
+                System.out.println(String.format("The result for %s from ILS: %.4f | avg time: %.3f s",
+                        files[count], avg, avgSeconds));
+
                 count++;
             }
 
@@ -268,14 +299,35 @@ public class Main {
     }
 
     private static void printsimpleResult(String file, GA al, KnapsackInstance inst) {
-        boolean[] solution = al.getSol(156);
+        boolean[] solution = null;
+        double avg = 0.0;
+        long totalNano = 0L;
 
-        if (solution == null) {
-            System.out.println("GA returned no valid solution (null) for :" + file);
-        } else {
-            System.out.println("The result for " + file + " from GA: " + inst.fitness(solution));
-
+        if (testNo <= 0) {
+            System.out.println("Test number is invalid");
+            return;
         }
+
+        for (int i = 0; i < testNo; i++) {
+            long start = System.nanoTime();
+            solution = al.getSol(156);
+            long end = System.nanoTime();
+
+            if (solution == null) {
+                System.out.println("GA returned no valid solution (null) for :" + file);
+                return;
+            }
+
+            totalNano += (end - start);
+            avg += inst.fitness(solution);
+        }
+
+        avg = avg / testNo;
+        double avgSeconds = totalNano / (double) testNo / 1_000_000_000.0;
+
+        
+        System.out.println(String.format("The result for %s from GA: %.4f | avg time: %.3f s ",
+                file, avg, avgSeconds));
     }
 
     private static String makeBitString(boolean[] input) {
