@@ -93,32 +93,6 @@ public class LocalSearch {
         return rand;
     }
 
-    // Get the valid neighbours of the current solution.
-    // private boolean[] getNeighbours(boolean[] solution) {
-    // ArrayList<boolean[]> neighbours = new ArrayList<>();
-
-    // for (int i = 0; i < solution.length; i++) {
-    // boolean[] neighbour = solution.clone();
-    // neighbour[i] = !neighbour[i];
-
-    // if (instance.isValid(neighbour)) {
-    // neighbours.add(neighbour);
-    // }
-    // }
-
-    // if (neighbours.isEmpty()) {
-    // return null;
-    // }
-
-    // boolean[] best = neighbours.get(0);
-    // for (int i = 0; i < neighbours.size(); i++) {
-    // if (instance.fitness(best) <= instance.fitness(neighbours.get(i))) {
-    // best = neighbours.get(i);
-    // }
-    // }
-    // return best;
-    // }
-
     private boolean[] getNeighbours(boolean[] solution) {
         boolean[] best = null;
 

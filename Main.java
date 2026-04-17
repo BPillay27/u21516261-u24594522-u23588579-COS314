@@ -68,25 +68,10 @@ public class Main {
     }
 
     private static void testILS() {
-        // long seed = 23;
-        // Scanner scanner = new java.util.Scanner(System.in);
-
-        // System.out.print("Enter seed (press Enter to use default 1234): ");
-        // String line = scanner.next();
-
-        // System.out.println(line);
-        // scanner.close();
-        // if (line != null && !line.trim().isEmpty()) {
-        // try {
-        // seed = Long.parseLong(line.trim());
-        // } catch (NumberFormatException e) {
-        // System.out.println("Invalid seed input, using default 1234.");
-        // }
-        // }
         try {
             long seed = 1234;
 
-            // Just f7 at ITL_iterations = 100, LS_iterations = 40
+            // Just Al at ITL_iterations = 100, LS_iterations = 100
             int ITL_iterations = 100;
             int LS_iterations = 100;
 
