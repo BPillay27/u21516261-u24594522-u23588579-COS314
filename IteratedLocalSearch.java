@@ -78,6 +78,46 @@ public class IteratedLocalSearch {
         return temp;
     }
 
+    // public boolean[] search() {
+    // boolean[] s1 = localSearch.generateValidSolution();
+    // boolean[] s_star = localSearch.search(s1);
+    // boolean[] best = s_star.clone();
+    // history.clear();
+    // history.add(s_star.clone());
+
+    // double worseAcceptanceChance = 0.15;
+
+    // for (int i = 0; i < ILS_iterations; i++) {
+    // boolean[] s_prime = perturb(s_star);
+
+    // if (Arrays.equals(s_prime, s_star)) {
+    // continue;
+    // }
+
+    // boolean[] s_star_prime = localSearch.search(s_prime);
+
+    // if (inHistory(s_star_prime)) {
+    // continue;
+    // }
+
+    // if (localSearch.getInstance().fitness(s_star_prime) >
+    // localSearch.getInstance().fitness(best)) {
+    // best = s_star_prime.clone();
+    // }
+
+    // if (localSearch.getInstance().fitness(s_star_prime) >
+    // localSearch.getInstance().fitness(s_star)) {
+    // s_star = s_star_prime.clone();
+    // } else if (localSearch.getRand().nextDouble() < worseAcceptanceChance) {
+    // s_star = s_star_prime.clone();
+    // }
+
+    // history.add(s_star.clone());
+    // }
+
+    // return best;
+    // }
+
     public boolean[] search() {
         boolean[] s1 = localSearch.generateValidSolution();
         boolean[] s_star = localSearch.search(s1);
@@ -96,21 +136,22 @@ public class IteratedLocalSearch {
 
             boolean[] s_star_prime = localSearch.search(s_prime);
 
-            if (inHistory(s_star_prime)) {
-                continue;
-            }
-
             if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(best)) {
                 best = s_star_prime.clone();
             }
 
-            if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(s_star)) {
-                s_star = s_star_prime.clone();
-            } else if (localSearch.getRand().nextDouble() < worseAcceptanceChance) {
-                s_star = s_star_prime.clone();
-            }
+            if (!inHistory(s_star_prime)) {
+                if (localSearch.getInstance().fitness(s_star_prime) > localSearch.getInstance().fitness(s_star)) {
+                    s_star = s_star_prime.clone();
+                } else if (localSearch.getRand().nextDouble() < worseAcceptanceChance) {
+                    s_star = s_star_prime.clone();
+                }
 
-            history.add(s_star.clone());
+                history.add(s_star.clone());
+                if (history.size() > 20) {
+                    history.remove(0);
+                }
+            }
         }
 
         return best;

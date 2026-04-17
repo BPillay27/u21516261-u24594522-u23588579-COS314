@@ -199,7 +199,7 @@ public class Main {
             printsimpleResult("knapPI_1_100_1000_1", simple, inst);
 
             int ITL_iterations = 100;
-            int LS_iterations = 70;
+            int LS_iterations = 100;
 
             ArrayList<IteratedLocalSearch> list = new ArrayList<>();
 
@@ -243,7 +243,7 @@ public class Main {
                     LS_iterations);
             list.add(ITL_10);
 
-            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, inst1, ITL_iterations,
+            IteratedLocalSearch ITL_11 = new IteratedLocalSearch(seed, inst, ITL_iterations,
                     LS_iterations);
             list.add(ITL_11);
 
