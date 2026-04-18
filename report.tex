@@ -42,6 +42,23 @@ The Genetic Algorithm (GA) was configured with a specific set of the Knapsack Pr
 
 \section{Iterated Local Search Configuration}
 
+The Iterated Local Search (ILS) was configured with a specific set of the Knapsack Problem. The operators and details are listed below:
+
+\begin{itemize}
+    \begin{itemize}
+    \item \textbf{Initial Solution:} The algorithm generates a greedy initial solution by attempting to add each item to the knapsack, unless the item causes the total weight to exceed capacity.
+    \item \textbf{Perturbation:} The Perturbation Algorithm takes a solution and randomly applies one of three mutations:
+    \begin{itemize}
+        \item \textbf 1-for-1 Swap: Removes one random item from the knapsack and adds one random item not in the knapsack to the knapsack.
+        \item \textbf 1-for-2 Swap: Removes one random item from the knapsack and adds two random items not in the knapsack to the knapsack.
+        \item \textbf 2-for-1 Swap: Removes two random items from the knapsack and adds one random item not in the knapsack to the knapsack.
+    \end{itemize}
+    If a chosen mutation cannot be performed or produces an invalid solution, the algorithm continues trying until a valid perturbed solution is found or 100 attempts have been made.
+    \item \textbf{Termination Condition:} The User specifies the number of iterations the ILS will run. However, ten or more iterations is recommended, and 10 iterations was used during the experiment.
+    \item \textbf{Acceptance Criterion:} The current solution is accepted if it achieves a greater fitness than the previous solution. If it is worse , it is still accepted with a probability of 60\%.
+    \item \textbf{Local Search:} The Local Search (LS) used by the ILS is a greedy hill climbing algorithm that selects the best neighbour from the current neighbourhood. The neighbourhood consists of all valid solutions that can be obtained by adding one item, removing one item, or swapping one included item with one excluded item.
+\end{itemize}
+
 \section{Experimental Setup}
 
 \section{Results}
