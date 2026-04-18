@@ -27,7 +27,6 @@ rj: Prac2.jar
 	java -jar Prac2.jar
 
 pdf: report.tex
-	pdflatex report.tex
 
 sources:
 	zip sourceFiles.zip *.java *.tex *.aux *.log

@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{float}
+\usepackage{amsmath}
 
 \begin{document}
 
@@ -45,7 +46,6 @@ The Genetic Algorithm (GA) was configured with a specific set of the Knapsack Pr
 The Iterated Local Search (ILS) was configured with a specific set of the Knapsack Problem. The operators and details are listed below:
 
 \begin{itemize}
-    \begin{itemize}
     \item \textbf{Initial Solution:} The algorithm generates a greedy initial solution by attempting to add each item to the knapsack, unless the item causes the total weight to exceed capacity.
     \item \textbf{Perturbation:} The Perturbation Algorithm takes a solution and randomly applies one of three mutations:
     \begin{itemize}
@@ -61,24 +61,63 @@ The Iterated Local Search (ILS) was configured with a specific set of the Knapsa
 
 \section{Experimental Setup}
 
+Both algorithms were run on all 11 knapsack problem instances using seed value 2, supplied at runtime via the program's seed prompt. The same seed was applied to both the GA and ILS to ensure reproducibility and to provide a controlled basis for comparison, in accordance with the assignment requirements. The GA was run for 160 generations with a population size of 26. The ILS was run for 100 outer iterations with 70 local search iterations per call.
+
+\subsection*{Wilcoxon Signed-Rank Test}
+
+A one-tailed Wilcoxon signed-rank test was conducted at the 5\% significance level ($\alpha = 0.05$) to assess whether one algorithm produces statistically significantly better solutions than the other. The null hypothesis $H_0$ states that the median difference in best fitness between the two algorithms is zero (i.e., they are equivalent).
+
+The signed differences $d_i = \text{GA}_i - \text{ILS}_i$ were computed for each of the 11 instances. Of these, 10 differences were exactly zero (both algorithms achieved identical fitness), leaving only one non-zero pair: instance f8\_l-d\_kp\_23\_10000, where $d_8 = 9765 - 9767 = -2$ (ILS performed better).
+
+After discarding tied pairs, the effective sample size is $n = 1$. The single absolute difference $|d_8| = 2$ receives rank $R_1 = 1$ with a negative sign, giving $W^{+} = 0$ and $W^{-} = 1$.
+
+For a one-tailed test ($H_1$: ILS $>$ GA), the test statistic is $W^{+} = 0$. With $n = 1$, the minimum achievable $p$-value is $0.5$, which exceeds $\alpha = 0.05$. We therefore \textbf{fail to reject} $H_0$.
+
+\textit{Conclusion:} There is no statistically significant difference between the GA and ILS at the 5\% significance level. Both algorithms achieved the known optimum on 10 out of 11 instances; ILS found the optimum on f8 while the GA fell 2 units short, but this single discrepancy is insufficient to establish a statistically significant advantage.
+
 \section{Results}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|c|c|c|c|c|c|}
+\caption{Comparison of GA and ILS on 11 knapsack problem instances}
+\begin{tabular}{|l|c|c|c|c|c|}
 \hline
-Problem Instance & Algorithm & Seed Value & Best Solution & Known Optimum & Runtime (seconds)\\
+\textbf{Problem Instance} & \textbf{Algorithm} & \textbf{Seed} & \textbf{Best Solution} & \textbf{Known Optimum} & \textbf{Runtime (s)} \\
 \hline
-f1 l-d kp 10 269 & ILS &  & 295.0 &295.0 & \\
- & GA & & & & \\
+f1\_l-d\_kp\_10\_269 & ILS & 2 & 295.0 & 295 & 0.002 \\
+                     & GA  & 2 & 295.0 & 295 & 0.020 \\
 \hline
-f2 l-d kp 20 878 & ILS &  & 1024 & 1024.0 & \\
- & GA & & & & \\
+f2\_l-d\_kp\_20\_878 & ILS & 2 & 1024.0 & 1024 & 0.003 \\
+                     & GA  & 2 & 1024.0 & 1024 & 0.009 \\
+\hline
+f3\_l-d\_kp\_4\_20 & ILS & 2 & 35.0 & 35 & 0.000 \\
+                   & GA  & 2 & 35.0 & 35 & 0.005 \\
+\hline
+f4\_l-d\_kp\_4\_11 & ILS & 2 & 23.0 & 23 & 0.000 \\
+                                     & GA  & 2 & 23.0 & 23 & 0.005 \\
+\hline
+f5\_l-d\_kp\_15\_375 & ILS & 2 & 481.0694 & 481.0694 & 0.002 \\
+                                         & GA  & 2 & 481.0694 & 481.0694 & 0.009 \\
+\hline
+f6\_l-d\_kp\_10\_60 & ILS & 2 & 52.0 & 52 & 0.001 \\
+                                        & GA  & 2 & 52.0 & 52 & 0.008 \\
+\hline
+f7\_l-d\_kp\_7\_50 & ILS & 2 & 107.0 & 107 & 0.001 \\
+                                     & GA  & 2 & 107.0 & 107 & 0.007 \\
+\hline
+f8\_l-d\_kp\_23\_10000 & ILS & 2 & 9767.0 & 9767 & 0.005 \\
+                       & GA  & 2 & 9765.0 & 9767 & 0.012 \\
+\hline
+f9\_l-d\_kp\_5\_80 & ILS & 2 & 130.0 & 130 & 0.000 \\
+                                     & GA  & 2 & 130.0 & 130 & 0.006 \\
+\hline
+f10\_l-d\_kp\_20\_879 & ILS & 2 & 1025.0 & 1025 & 0.003 \\
+                                            & GA  & 2 & 1025.0 & 1025 & 0.006 \\
+\hline
+knapPI\_1\_100\_1000\_1 & ILS & 2 & 9147.0 & 9147 & 0.046 \\
+                                                & GA  & 2 & 9147.0 & 9147 & 0.021 \\
 \hline
 \end{tabular}
-
 \end{table}
-
-
 
 \end{document}
