@@ -1,0 +1,285 @@
+--- GP Run ---
+populationSize=200
+initialTreeDepth=10
+maxOffspringDepth=45
+tournamentSize=4
+crossoverRate=0.88
+mutationRate=0.12
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8415300546448088, testAccuracy=0.4186046511627907
+Best Tree: ((V48) OR (((((V13) OR (((V25) OR ((((V13) OR (((V25) OR ((V48) OR (((V13) OR ((((((V50) AND NOT((NOT((V25)) AND ((V13) OR ((NOT((V2)) OR (V50)) AND (V14)))))) AND (((V25) AND NOT((V25))) AND NOT((V23)))) OR NOT((((NOT(((((V14) OR (V38)) AND ((V24) AND (V40))) AND NOT(((V48) OR (V6))))) AND (((V23) AND (((V34) AND (V45)) AND ((V45) AND (V28)))) OR (((V29) AND (V33)) OR NOT((V23))))) OR ((V38) OR (V49))) AND (V39)))) OR ((V48) OR (V31))) AND (V14))) AND (V50)))) AND (V14))) OR ((V27) OR (V8))) AND ((V50) AND (V50)))) AND (V14))) OR (V12)) OR (((V34) AND (V45)) AND NOT(((V2) AND (V31))))) AND (V50)))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=46
+tournamentSize=6
+crossoverRate=0.88
+mutationRate=0.12
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8306010928961749, testAccuracy=0.5232558139534884
+Best Tree: NOT(((NOT((((V5) AND (V27)) OR ((V46) AND (((V37) OR (V17)) OR NOT((V50)))))) OR NOT((V50))) AND NOT((NOT(((V37) OR (V17))) AND ((V50) AND (V40))))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=46
+tournamentSize=8
+crossoverRate=0.85
+mutationRate=0.15
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8524590163934426, testAccuracy=0.6046511627906976
+Best Tree: (((V40) AND (((((V40) AND (V25)) OR ((((V29) AND (((((((V40) OR (((V50) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) OR (V50)) AND (V25)) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) AND (((V29) OR ((((V40) AND (V25)) AND ((((V20) AND (V26)) AND (V29)) OR (((V48) OR (((NOT(NOT((V3))) AND (((V40) AND ((V29) OR (V25))) OR ((V29) OR ((NOT((V48)) OR (((((V40) AND ((((V50) OR (((V29) OR (V29)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50)))) AND ((((V29) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((V40) AND ((V40) OR (V25))) OR ((V25) AND ((V2) AND (((((V34) AND (((((((V40) OR (((V31) OR (V38)) OR ((V33) OR (V30)))) OR (V50)) AND (V25)) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) AND (((V29) OR (NOT((V3)) OR ((V29) OR ((V29) OR (V25))))) OR (V50))) OR (V25))) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((((V29) AND (V25)) OR (((V40) AND (V25)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50)))))) OR (V50)) OR (V25)))))))) OR (V50)) OR ((V40) AND (V50)))) OR ((V29) OR ((((((V25) AND ((V2) AND ((V29) OR ((V29) OR (V25))))) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) OR (V29)) OR ((V48) OR (V25))) AND ((V2) AND (((V40) AND ((V50) OR (V29))) OR (V25)))))) OR (V25))) OR ((V48) OR (V25)))))) OR ((V40) AND (((V29) OR ((V29) OR (V25))) OR (V25)))) OR ((V25) AND (V40)))) OR (V50)))) OR ((V29) OR ((V50) OR (V25))))) OR (V50))) OR (V25))) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((((V29) AND (V25)) OR (((V29) OR (V20)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (((V44) AND (V6)) OR ((V39) OR (V0)))))))) OR ((V48) OR (((((V40) AND ((V29) OR (((((NOT(((V47) OR (V15))) OR NOT((V31))) AND (V29)) OR (((V40) AND (V50)) OR ((V25) AND ((V2) AND (((V25) AND (V19)) OR (V25)))))) AND (V29)) OR ((V29) OR ((V29) OR (V25)))))) OR ((((V40) AND ((V40) AND (V25))) AND (V25)) OR ((V25) OR (V25)))) OR (V50)) OR ((((((V40) AND (V25)) OR ((NOT((V48)) OR (((((V40) AND ((((V50) OR (((V29) OR (V29)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50)))) AND ((((V29) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((V40) AND ((V40) OR (V25))) OR ((V25) AND ((V2) AND (((((V34) AND (V29)) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((((V29) AND (V25)) OR (((V40) AND (V25)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50)))))) OR (V50)) OR (V25)))))))) OR (V50)) OR ((V40) AND (V50)))) OR ((V29) OR ((((((V25) AND ((V2) AND (((V40) AND (V25)) OR ((V25) AND ((V2) AND (((NOT((V31)) AND (((V40) AND ((V29) OR (V25))) OR ((V29) OR (((V2) AND ((V29) OR (V25))) OR (V25))))) OR ((V40) AND (((V29) OR ((V29) OR (V25))) OR (V25)))) OR ((V25) AND (V40)))))))) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) OR (V50)) OR ((V48) OR (V25))) AND ((V2) AND (((V40) AND ((V50) OR (V29))) OR (V25)))))) OR (V25))) OR ((V48) OR (V25)))) OR (V50)) OR (V25)) AND (V50)))))) OR (V50)) OR ((V40) AND (V50)))) OR ((((V40) AND (V0)) AND (V25)) OR (((((V50) OR ((V48) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50))) AND ((V2) AND (((V40) AND (((V29) OR (((V40) AND (V25)) OR NOT((((V40) AND (V2)) OR (V25))))) OR (V25))) OR (V25))))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=46
+tournamentSize=8
+crossoverRate=0.85
+mutationRate=0.15
+mutationOffspringDepth=9
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8524590163934426, testAccuracy=0.5581395348837209
+Best Tree: ((((((V25) AND ((((V42) OR ((((V40) AND (V15)) OR (V50)) AND (V40))) AND (V15)) OR (V50))) OR (V40)) AND (((((((((V39) AND (NOT((V43)) OR (V50))) OR NOT(NOT(((V32) OR (V42))))) OR NOT((V43))) OR ((V29) OR ((V25) AND ((NOT(((V45) OR (V44))) OR (V31)) OR (V50))))) OR NOT((((((((V25) OR ((V29) OR ((V25) OR NOT((V43))))) AND (V15)) OR ((V29) OR NOT((V21)))) OR ((((V30) AND (V18)) OR (V25)) AND (V15))) OR ((V43) OR (V25))) OR ((V29) OR (V48))))) OR ((V29) OR (V25))) AND (((((V25) OR ((V6) OR (V0))) OR ((V29) OR (V25))) AND ((((V40) OR ((V11) AND (V15))) OR ((V50) AND NOT((((((((V15) OR NOT((V9))) OR ((V50) AND (V29))) OR NOT(((((V42) OR ((((V40) AND (V15)) OR (V50)) AND (V40))) AND (V15)) OR (V50)))) OR ((((V42) OR ((((((V25) OR NOT((V43))) OR ((V50) AND (V29))) OR NOT((V43))) OR ((V25) OR (V50))) OR (V48))) AND (V15)) OR (V50))) AND (((V25) AND ((((V42) OR ((V8) OR (V48))) AND (V15)) OR (V15))) OR (V40))) OR (V25))))) OR (V50))) OR NOT(((V48) OR NOT((V43)))))) OR (V25))) OR (V40)) AND (((((V25) OR NOT((V43))) OR ((NOT((V21)) AND ((V11) AND (V28))) OR ((V19) AND (((V29) OR (V25)) OR ((((V25) OR NOT((V43))) OR ((V29) OR (V25))) AND ((((V15) OR NOT((V42))) OR ((V50) AND (V29))) OR NOT(((((((V41) OR (V25)) OR (V9)) AND (NOT((((V42) OR (((V50) AND (V25)) OR ((((V42) OR ((((((((V7) AND (V8)) AND (V39)) AND NOT(((V28) AND NOT((V43))))) OR NOT((NOT((V43)) OR NOT((((V36) OR (V26)) OR ((((V50) OR NOT((V50))) OR ((V50) AND (V29))) OR (((((V3) OR (V49)) OR ((V12) AND (V11))) OR NOT((V25))) OR (((V25) AND ((V4) OR (V7))) OR (V40))))))))) OR ((((V35) OR ((V50) AND (V29))) OR ((V32) OR (V42))) OR ((V50) OR NOT((V43))))) OR ((V29) OR (V25))) OR (V48))) AND (V15)) OR (V50)))) AND (V15))) OR (V25))) OR (V25)) AND (V15))))))))) AND ((((V40) AND (V15)) OR (V50)) AND (((V25) OR ((((((NOT((V50)) AND (NOT(NOT(((V43) OR NOT((V20))))) OR NOT((((V36) OR (V26)) OR NOT((V43)))))) AND (((((((((((V48) OR NOT((V43))) OR ((V50) AND NOT((((((((V15) OR NOT((V43))) OR ((V50) AND (V29))) OR (V48)) OR ((((V42) OR ((V43) OR (V48))) AND (V15)) OR (V50))) AND (((V25) AND ((((V42) OR ((V25) OR (V25))) AND (V25)) OR (V50))) OR (V40))) OR (((V42) OR (((((((((V29) OR (V48)) OR ((V42) OR (NOT(((V25) AND ((((V42) OR (((V29) AND ((V29) OR (V40))) AND ((V27) AND (V38)))) AND (V10)) OR (((((V42) OR ((V29) OR (V8))) AND ((((V42) OR ((V29) OR (V48))) AND (V15)) OR (V50))) OR (V40)) AND ((((((V43) OR (V25)) OR NOT((V43))) OR (((V42) OR (V43)) AND (V29))) AND (V15)) OR (V25)))))) OR (V48)))) OR (V48)) AND (V15)) OR (V40)) OR NOT((V50))) OR ((V29) OR (V25))) OR (V48))) AND (V15)))))) OR NOT((V43))) OR ((V15) OR ((V50) OR (V29)))) AND (V15)) OR ((V29) OR (V25))) OR (V25)) OR NOT((V43))) OR ((V20) OR (V48))) OR ((V45) OR (V50)))) OR NOT(((V25) AND (V40)))) OR ((V50) AND (V29))) OR (V40)) AND (((V29) OR (V48)) OR ((((((((V50) OR ((V29) OR (V25))) AND ((((V42) OR (((V29) AND ((V29) OR (V25))) AND (((V1) AND (V20)) AND (V38)))) AND (V10)) OR (((((V42) OR ((V29) OR (V8))) AND ((((V42) OR ((V29) OR (V48))) AND (V15)) OR (V50))) OR (V40)) AND ((((((V43) OR (V25)) OR NOT((V43))) OR (((V42) OR (V43)) AND (V15))) AND (V15)) OR (V25))))) OR (V40)) AND ((V42) OR ((V29) OR (V48)))) OR (((((V47) AND (((V22) OR (V39)) AND (NOT(NOT(((V43) OR (V5)))) OR (NOT(((V14) OR (V31))) AND (V7))))) OR (V21)) OR (NOT((V30)) OR ((NOT(NOT(NOT((V22)))) OR (NOT((((V7) AND (V17)) OR NOT((V27)))) AND ((((V13) OR (V28)) OR ((V36) OR (V21))) AND NOT(((V47) OR (V12)))))) AND NOT((((((V31) OR (V7)) OR ((V11) AND (V44))) OR NOT(NOT((V8)))) OR (NOT(NOT((V26))) AND NOT(NOT((V48))))))))) AND (NOT((NOT(NOT((NOT(NOT((V2))) AND (V34)))) OR NOT((V29)))) OR (((V11) AND (V16)) OR ((((NOT(NOT((V5))) OR (V0)) AND ((NOT((V40)) AND (V30)) OR (((V2) AND (V8)) AND (V25)))) AND (V36)) OR ((V44) OR ((NOT((V40)) OR (((V24) AND (V4)) AND (V7))) AND ((NOT((V18)) AND NOT((V14))) OR (NOT((V30)) AND (V24)))))))))) AND (((((V25) OR NOT((V43))) OR ((V29) OR (V25))) AND ((((V40) AND (V15)) OR (V50)) AND (V40))) OR (V25))) OR (V50))))) OR ((V50) AND NOT(((V48) OR NOT((V43)))))))) OR ((V25) OR (V29))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=50
+tournamentSize=8
+crossoverRate=0.85
+mutationRate=0.15
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8469945355191257, testAccuracy=0.5348837209302325
+Best Tree: (((V40) AND (((((V25) AND ((V2) AND (V25))) OR ((V29) OR ((V25) AND (V29)))) AND (V29)) OR ((((V28) AND (V25)) OR (((NOT((V31)) AND ((((((V40) AND ((V25) AND ((V40) AND (((V40) AND ((V40) OR (V25))) OR (V25))))) OR ((V29) OR (((V40) AND (V25)) OR ((V29) OR ((V29) OR (V25)))))) OR (V50)) AND (V29)) OR ((V29) OR (((V2) AND ((V29) OR (V25))) OR (V25))))) OR ((V40) AND (((V29) OR ((V29) OR (V25))) OR (V25)))) OR ((V25) AND (((NOT((V31)) AND (((V40) AND (V29)) OR ((V29) OR (((((V40) AND (V50)) AND (V25)) OR ((V25) AND (V29))) OR (V25))))) OR ((V25) AND (V25))) OR ((V25) AND (V40)))))) OR (V50)))) OR ((((V40) AND ((((((V40) AND (V25)) OR (((V29) OR ((V25) AND (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V50))))) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50))) OR ((V29) AND ((V25) OR (V25))))) OR ((((V25) OR ((((V36) OR NOT(((V50) OR ((V29) OR (V25))))) OR (V25)) OR (V29))) AND (V50)) OR ((V25) AND ((V2) AND ((V40) AND (V50)))))) OR ((V25) AND ((V2) AND ((V29) OR (((((V40) AND (V25)) OR ((V25) OR ((V40) AND (V25)))) OR (V50)) OR ((V40) AND (V50))))))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=13
+maxOffspringDepth=46
+tournamentSize=8
+crossoverRate=0.85
+mutationRate=0.15
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.825136612021858, testAccuracy=0.5232558139534884
+Best Tree: (((V13) AND (V50)) OR (NOT(NOT(((V35) AND (V43)))) OR (((V50) AND ((V33) OR (V45))) AND ((((V13) AND (V50)) OR (NOT(NOT(((V35) AND (V43)))) OR (((V25) AND ((V33) OR (V45))) AND ((V1) OR (V11))))) OR (V15)))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=46
+tournamentSize=8
+crossoverRate=0.85
+mutationRate=0.15
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8524590163934426, testAccuracy=0.6046511627906976
+Best Tree: (((V40) AND (((((V40) AND (V25)) OR ((((V29) AND (((((((V40) OR (((V50) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) OR (V50)) AND (V25)) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) AND (((V29) OR ((((V40) AND (V25)) AND ((((V20) AND (V26)) AND (V29)) OR (((V48) OR (((NOT(NOT((V3))) AND (((V40) AND ((V29) OR (V25))) OR ((V29) OR ((NOT((V48)) OR (((((V40) AND ((((V50) OR (((V29) OR (V29)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50)))) AND ((((V29) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((V40) AND ((V40) OR (V25))) OR ((V25) AND ((V2) AND (((((V34) AND (((((((V40) OR (((V31) OR (V38)) OR ((V33) OR (V30)))) OR (V50)) AND (V25)) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) AND (((V29) OR (NOT((V3)) OR ((V29) OR ((V29) OR (V25))))) OR (V50))) OR (V25))) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((((V29) AND (V25)) OR (((V40) AND (V25)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50)))))) OR (V50)) OR (V25)))))))) OR (V50)) OR ((V40) AND (V50)))) OR ((V29) OR ((((((V25) AND ((V2) AND ((V29) OR ((V29) OR (V25))))) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) OR (V29)) OR ((V48) OR (V25))) AND ((V2) AND (((V40) AND ((V50) OR (V29))) OR (V25)))))) OR (V25))) OR ((V48) OR (V25)))))) OR ((V40) AND (((V29) OR ((V29) OR (V25))) OR (V25)))) OR ((V25) AND (V40)))) OR (V50)))) OR ((V29) OR ((V50) OR (V25))))) OR (V50))) OR (V25))) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((((V29) AND (V25)) OR (((V29) OR (V20)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (((V44) AND (V6)) OR ((V39) OR (V0)))))))) OR ((V48) OR (((((V40) AND ((V29) OR (((((NOT(((V47) OR (V15))) OR NOT((V31))) AND (V29)) OR (((V40) AND (V50)) OR ((V25) AND ((V2) AND (((V25) AND (V19)) OR (V25)))))) AND (V29)) OR ((V29) OR ((V29) OR (V25)))))) OR ((((V40) AND ((V40) AND (V25))) AND (V25)) OR ((V25) OR (V25)))) OR (V50)) OR ((((((V40) AND (V25)) OR ((NOT((V48)) OR (((((V40) AND ((((V50) OR (((V29) OR (V29)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50)))) AND ((((V29) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((V40) AND ((V40) OR (V25))) OR ((V25) AND ((V2) AND (((((V34) AND (V29)) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (((((V29) AND (V25)) OR (((V40) AND (V25)) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50)))))) OR (V50)) OR (V25)))))))) OR (V50)) OR ((V40) AND (V50)))) OR ((V29) OR ((((((V25) AND ((V2) AND (((V40) AND (V25)) OR ((V25) AND ((V2) AND (((NOT((V31)) AND (((V40) AND ((V29) OR (V25))) OR ((V29) OR (((V2) AND ((V29) OR (V25))) OR (V25))))) OR ((V40) AND (((V29) OR ((V29) OR (V25))) OR (V25)))) OR ((V25) AND (V40)))))))) OR (((V29) OR ((V25) AND (V29))) OR ((V48) OR (V25)))) OR (V50)) OR ((V48) OR (V25))) AND ((V2) AND (((V40) AND ((V50) OR (V29))) OR (V25)))))) OR (V25))) OR ((V48) OR (V25)))) OR (V50)) OR (V25)) AND (V50)))))) OR (V50)) OR ((V40) AND (V50)))) OR ((((V40) AND (V0)) AND (V25)) OR (((((V50) OR ((V48) OR ((V48) OR (V25)))) OR (V50)) OR ((V40) AND (V50))) AND ((V2) AND (((V40) AND (((V29) OR (((V40) AND (V25)) OR NOT((((V40) AND (V2)) OR (V25))))) OR (V25))) OR (V25))))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=46
+tournamentSize=8
+crossoverRate=0.8
+mutationRate=0.2
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8415300546448088, testAccuracy=0.5813953488372093
+Best Tree: (((V50) OR (((V35) OR ((NOT(NOT((((((V27) OR (V44)) AND NOT((V0))) OR (((V33) OR (V7)) AND ((V40) OR (V7)))) AND (V50)))) OR (NOT((NOT(NOT(((V3) OR (V32)))) AND (NOT(((V11) AND (V32))) OR (NOT((V49)) OR NOT((V36)))))) AND ((V42) OR (NOT((V17)) AND (V39))))) OR ((V10) AND NOT(NOT(NOT((V2))))))) AND (V40))) AND (((((V50) OR (((((V30) OR (V49)) AND ((((V12) OR (V49)) OR ((((V40) AND (V50)) OR (V25)) AND (V40))) AND ((((V40) AND (V40)) AND (V40)) OR (V25)))) OR (((V25) OR ((((V24) AND (V50)) OR (V25)) AND (V40))) AND (((V40) AND ((((V50) AND (V50)) OR (V25)) OR (V25))) OR (V25)))) AND (V40))) AND (((V40) AND (((((NOT(((V31) OR (V28))) AND (V41)) OR (NOT(((V22) AND (V5))) OR NOT(((V21) AND (V38))))) OR NOT(((V22) AND NOT(NOT((V35)))))) OR ((V49) OR ((((V14) AND ((V27) OR (V1))) AND ((V50) AND ((V22) OR (V2)))) AND NOT((((V34) AND (V0)) OR (V19)))))) OR (((V42) OR NOT((V40))) AND (V40)))) OR (V25))) OR (V25)) OR ((V12) OR (V29))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=48
+tournamentSize=8
+crossoverRate=0.8
+mutationRate=0.2
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8415300546448088, testAccuracy=0.5930232558139535
+Best Tree: (((V50) OR (((V35) OR NOT(NOT((V48)))) AND (V40))) AND (((((V50) OR ((V25) AND (V40))) AND (((V40) AND (V50)) OR (V25))) OR (V25)) OR ((V12) OR (V49))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=48
+tournamentSize=8
+crossoverRate=0.8
+mutationRate=0.2
+mutationOffspringDepth=10
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8415300546448088, testAccuracy=0.5813953488372093
+Best Tree: (((((((NOT((((V25) AND (V50)) OR NOT((V39)))) AND (V40)) AND (V50)) OR ((((V25) AND (V50)) OR NOT((V39))) AND NOT((V10)))) AND (V50)) AND (V50)) OR ((V40) AND (V25))) AND ((NOT((NOT(((((V45) AND (NOT(((((V43) AND (V12)) AND (NOT((V32)) OR ((V40) AND (V34)))) OR NOT((V9)))) AND (NOT((V41)) AND NOT((NOT((V9)) OR ((V33) AND ((V26) OR (V33)))))))) OR NOT((((V8) OR (NOT(NOT(((V16) OR (V45)))) AND (NOT((V23)) OR NOT((V20))))) OR NOT((((((V50) OR (V6)) OR ((V44) OR (V43))) OR (((V6) OR (V22)) AND NOT((V35)))) OR ((V14) AND (((V14) AND (V17)) AND ((V38) OR (V31))))))))) OR ((((V14) OR (V9)) OR ((((NOT((((V25) AND (V50)) OR NOT((V39)))) AND (V40)) AND (V50)) OR (((NOT((V39)) AND (NOT((((V25) AND (V50)) OR NOT((V39)))) AND (V40))) AND ((((((NOT((((V25) AND ((V25) OR (((((V25) AND (V50)) AND (V50)) OR NOT((V39))) AND NOT((V10))))) OR NOT(((((NOT(((((((((NOT((V50)) AND (V40)) AND (V50)) OR ((((V25) AND (V50)) OR (((V50) OR NOT((V39))) AND NOT((V10)))) AND NOT((V10)))) AND (V50)) AND (V50)) OR (V50)) AND (((NOT((V39)) AND NOT((V13))) AND ((V6) AND (V50))) OR (NOT((V10)) AND NOT((V10))))) OR NOT((V39)))) AND (V50)) AND (V50)) OR ((((V25) AND (((V22) AND (V29)) OR NOT((V39)))) OR NOT((V39))) AND NOT((V10)))) AND (V50))))) AND (V40)) AND (V50)) OR ((((V10) AND (V50)) OR NOT((V39))) AND NOT((V39)))) AND (V50)) AND (V50)) OR ((V25) AND (((V40) OR ((((NOT(((V40) OR (V39))) AND (V40)) AND (V25)) OR (((V44) OR (V27)) AND NOT(NOT((V39))))) AND (V25))) AND (((NOT((V39)) AND (V39)) AND (V50)) OR ((((V25) AND (V50)) OR NOT((V39))) AND NOT((V10)))))))) OR ((((V25) AND (V50)) OR NOT((V39))) AND (V50)))) OR (((NOT(((V9) OR (V15))) AND (V50)) OR (V43)) OR (((((V33) OR (V2)) OR ((V0) AND (V14))) AND (V50)) AND NOT((((V5) OR (V14)) AND (V19))))))) AND ((V48) AND (((((V23) OR (((V37) OR (V50)) OR ((V44) AND (V21)))) AND NOT((V42))) OR (NOT((((V41) AND (V19)) OR ((V48) AND (V51)))) AND (((V47) AND NOT((V35))) AND (V42)))) OR (NOT((NOT(NOT((V27))) OR (V26))) AND (V34))))))) AND (((NOT((V40)) AND (V10)) AND (((((((((((((((V25) AND (V50)) OR NOT((V39))) AND (V50)) OR ((((NOT((V47)) AND (V40)) AND (V12)) OR ((V25) AND (V50))) AND (V25))) AND NOT((((((((((NOT((((((V25) AND (((V25) AND (((V25) AND (((NOT(((((V19) AND (V44)) AND ((V33) AND (V19))) AND (((V23) OR (V18)) AND (V27)))) AND (V40)) AND (V50)) OR ((((V25) AND (V50)) OR NOT((V39))) AND (V50)))) OR NOT((V25)))) OR NOT((V39)))) OR ((((V25) AND (V50)) OR ((V40) AND (V25))) AND (V50))) AND ((V10) AND (V25))) OR NOT((V39)))) AND (V40)) AND (V50)) OR ((((V25) AND (((V25) AND (((NOT((V25)) AND (V40)) AND (V40)) OR ((NOT((V13)) OR NOT((V39))) AND NOT((V10))))) OR NOT((V39)))) OR NOT((V39))) AND NOT((V10)))) AND (V50)) AND (V25)) OR ((V3) OR (V4))) AND (NOT((((V11) OR (V46)) OR ((V40) AND (V31)))) AND ((NOT((V12)) OR ((((V21) OR (V43)) AND ((NOT((V36)) AND (V35)) OR NOT((NOT((NOT((V20)) AND (V20))) OR ((V45) OR ((NOT((V48)) OR ((V21) AND (V20))) AND NOT(((V28) OR (V16))))))))) AND (V31))) AND NOT((V19))))) OR (V29)) AND (NOT((NOT(((((((((V25) AND (V50)) AND (V50)) OR NOT((V39))) AND (V50)) AND (NOT((V46)) OR (((NOT(((V14) AND (V13))) OR NOT(((V38) AND (V41)))) AND (V10)) AND NOT((V39))))) OR (V18)) OR ((V3) OR (V25)))) AND (V38))) AND NOT(((NOT((V30)) AND (NOT((V15)) AND ((V48) OR (V41)))) AND NOT((((V10) OR (V10)) OR NOT((V28)))))))))) OR ((((V25) AND (V50)) OR NOT((V39))) AND (V50))) AND (V50)) AND (V50)) AND (V40)) AND (V50)) OR ((((V10) AND (V50)) OR NOT((V39))) AND NOT((V39)))) AND (V50)) AND (V50)) OR ((V40) AND (V25)))) OR NOT((V39))))) OR NOT(NOT(((V13) OR (V3))))) OR ((((V25) AND (V50)) OR NOT(((NOT(((((V25) OR (V42)) AND (NOT((V46)) OR (((V10) AND (((V26) AND ((V39) OR NOT(NOT((V5))))) AND (V21))) AND NOT(NOT(((V46) OR (V15))))))) OR ((((((((((V13) AND (V9)) AND (V40)) AND (V50)) OR ((((V25) AND (V50)) OR NOT((V50))) AND ((V20) AND ((V24) OR (NOT((((V15) AND (NOT((NOT((V16)) AND ((NOT((V40)) AND NOT((V27))) OR (V18)))) AND NOT(((NOT(NOT((V22))) OR NOT(((V9) OR (V25)))) OR (NOT((V47)) OR (V3)))))) AND ((((((V40) AND (V21)) AND (((((((NOT((((V25) AND (V50)) OR NOT((V39)))) AND (V39)) AND (V50)) OR (((NOT((V35)) AND (V50)) OR NOT((V39))) AND NOT((V10)))) AND (V50)) OR (V25)) AND NOT((V33))) AND (V13))) AND ((V10) OR NOT((NOT((V3)) AND ((V32) AND (V40)))))) AND NOT(NOT((V10)))) OR (V33)))) OR ((V28) OR (V31))))))) AND (V50)) AND (V50)) OR (((NOT((V39)) AND (V50)) OR NOT(NOT((V10)))) AND NOT((V10)))) AND (V50)) AND (V29)))) AND NOT(NOT((NOT((((((V18) AND (V4)) OR NOT((V7))) AND (NOT((V50)) OR NOT((((V24) AND (V50)) AND (V50))))) AND (V41))) AND (V33))))) AND ((V22) OR ((((((((((((NOT(((V25) AND (((V25) AND (((NOT(((V40) OR (V39))) AND NOT(NOT((V40)))) AND (V50)) OR ((((V25) AND (V50)) OR NOT((V39))) AND (V50)))) OR NOT((((V6) AND (V50)) AND (V50)))))) AND (V40)) AND (V50)) OR (((((V25) AND (V50)) OR ((NOT((V39)) OR NOT(((((V25) AND (((((V25) AND (V50)) OR NOT((V39))) AND NOT((V10))) AND (V50))) OR (V50)) AND (((NOT((V39)) AND (V40)) AND (V50)) OR ((((V25) AND (V50)) OR NOT((V39))) AND NOT((V10))))))) AND (V50))) OR NOT((V39))) AND ((V25) AND (V50)))) AND (((V25) AND (V50)) OR NOT((V39)))) AND (V50)) OR (V38)) AND (V50)) AND (V50)) OR ((V40) AND (V25))) AND (((V25) AND (((NOT((((V31) AND (V48)) OR (V39))) AND (V40)) AND (((V10) AND (V50)) OR NOT((V39)))) OR ((((((((V25) AND (((((((NOT((V10)) AND NOT((((((V29) AND ((((V25) AND (V50)) OR ((V50) AND NOT((V10)))) AND NOT((V39)))) OR ((((V25) AND (V50)) AND ((V7) AND ((V13) OR (V28)))) AND (((V40) OR NOT((V14))) AND (((V50) OR (V33)) AND (V45))))) AND (V25)) AND ((NOT((V30)) OR (((((V51) AND (V3)) AND (V27)) OR (((V40) AND (V19)) OR NOT((V41)))) OR ((NOT((NOT(((((((V50) AND (V40)) AND (V50)) OR ((V40) AND (V25))) AND (NOT((V39)) OR ((((V25) AND (V50)) OR NOT((V28))) AND NOT((V10))))) OR NOT((V39)))) OR (V39))) AND (V40)) AND (V0)))) OR (V40))))) OR NOT(NOT(((V40) OR (NOT(NOT((V35))) AND NOT(((NOT((V25)) AND ((V43) AND (V19))) AND (V30)))))))) AND (V50)) OR NOT((V39))) AND (V50)) OR NOT(NOT((V10)))) AND NOT((V8)))) OR NOT((V39))) OR NOT((V39))) AND NOT((V10))) AND (V50)) OR NOT((V39))) AND NOT((V40))))) OR (NOT((V39)) AND NOT((V10))))) AND (V50)) OR ((((V25) AND (V50)) OR NOT((V39))) AND NOT(((V25) AND (V50))))))))) AND ((((V25) AND (V50)) OR (V50)) AND NOT((V2))))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=11
+maxOffspringDepth=48
+tournamentSize=8
+crossoverRate=0.8
+mutationRate=0.2
+mutationOffspringDepth=9
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8306010928961749, testAccuracy=0.5
+Best Tree: (NOT(NOT((((V25) AND (V25)) AND (((V20) AND (V2)) OR ((((V43) AND ((V36) OR (V42))) OR (NOT((V17)) AND (NOT(NOT((V2))) OR (((V43) AND (V30)) OR ((V15) OR (V28)))))) OR (((V43) AND NOT((((((V25) OR ((V15) OR (NOT(NOT((V20))) OR (V30)))) AND (V14)) OR ((V15) OR (V28))) OR (V35)))) OR (V28))))))) OR ((NOT((V17)) AND (V36)) OR ((V25) AND (V14))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=11
+maxOffspringDepth=48
+tournamentSize=8
+crossoverRate=0.8
+mutationRate=0.2
+mutationOffspringDepth=10
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8633879781420765, testAccuracy=0.6162790697674418
+Best Tree: (((NOT(((V25) AND (V29))) AND NOT((V39))) AND (NOT(NOT((NOT((V49)) AND ((V7) OR (V3))))) OR (((V40) AND (((NOT(((V6) AND (V48))) AND NOT(((V40) AND (V33)))) AND (((V6) AND (V29)) OR (((V40) AND (((NOT((((((V13) AND (V24)) OR ((V46) OR (V7))) OR ((V48) AND (NOT((V24)) OR ((NOT((((V25) AND (V14)) AND (V39))) OR ((V29) AND (V32))) AND ((V40) AND (V20)))))) AND (V29))) AND NOT(((V40) AND (V33)))) AND ((((NOT(((V40) AND (V29))) AND NOT(((V40) AND (V33)))) AND (((NOT((V6)) AND NOT((((V40) AND (V25)) AND (V33)))) AND (NOT(NOT((NOT((V49)) AND ((V7) OR (V19))))) OR ((NOT(((V6) AND (V29))) AND (V20)) OR ((V25) AND (V14))))) OR ((((V40) AND (V25)) AND (V25)) AND ((V24) OR ((V48) AND (NOT((V24)) OR ((((V46) AND ((V15) AND (V9))) AND (NOT((NOT(((V29) AND (V39))) OR ((V30) OR ((V33) OR (V45))))) AND (((V4) OR (NOT(((V46) OR (V7))) AND NOT((V43)))) AND (V37)))) AND (NOT((V23)) OR ((V3) AND (V39)))))))))) OR (((V24) AND (V25)) AND ((((V13) AND (V24)) OR ((V46) OR (V7))) OR ((V24) AND (NOT((V24)) OR ((NOT((V1)) OR ((V29) AND (V32))) AND NOT((V1)))))))) OR (((V40) AND (((NOT(((V6) AND (V29))) AND NOT(((V40) AND (V3)))) AND (NOT(NOT((NOT((V49)) AND ((V7) OR (V19))))) OR ((V4) AND (V13)))) OR (((V40) AND (V25)) AND ((((V13) AND (((V40) AND (V25)) AND ((((V13) AND (NOT(((V6) AND (V29))) OR ((V20) AND (NOT((V33)) OR ((NOT((V1)) OR (NOT((V1)) AND (V32))) AND (NOT((V23)) OR ((V3) AND (V39)))))))) OR ((V46) OR (V7))) OR ((V24) AND (((V25) AND (V14)) OR (V24)))))) OR ((V46) OR (V7))) OR ((V24) AND (((V24) AND (V14)) OR (V24))))))) OR (((NOT(((V15) AND (V29))) AND NOT(((V40) AND (V33)))) AND (V20)) OR (((V40) AND (V25)) AND ((((V13) AND (V24)) OR (V15)) OR ((V48) AND (NOT((V24)) OR ((NOT((V1)) OR ((NOT((V49)) OR ((NOT((V24)) AND (V25)) OR ((V25) AND (V14)))) AND (V32))) AND (NOT((V23)) OR ((V3) AND (V39)))))))))))) OR ((V48) AND (NOT(((V6) AND (V29))) OR ((V13) AND (NOT(((NOT((V24)) AND (V25)) OR ((V25) AND (V14)))) OR (((NOT((V24)) OR ((((V46) AND ((V15) AND (V9))) AND (NOT((NOT(((V3) AND (V39))) OR ((V30) OR ((V33) OR (V45))))) AND (((V4) OR (NOT(((V46) OR (V7))) AND NOT((V43)))) AND (V37)))) AND (NOT((V23)) OR ((V3) AND (V39))))) OR ((V29) AND (V32))) AND (NOT((V23)) OR (V7))))))))) OR ((V6) AND (V14))))) OR (((V40) AND (V25)) AND ((((V13) AND (V24)) OR ((V46) OR (V7))) OR ((V24) AND (((V25) AND (V14)) OR ((NOT(((V3) AND (V39))) OR ((V3) AND (V32))) AND ((V6) AND (V29))))))))) OR ((V25) AND (V14))))) OR ((V48) AND (NOT(((V6) AND (V29))) OR ((V48) AND (V7)))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=11
+maxOffspringDepth=48
+tournamentSize=8
+crossoverRate=0.8
+mutationRate=0.2
+mutationOffspringDepth=12
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8360655737704918, testAccuracy=0.5
+Best Tree: ((NOT(NOT(((((V49) AND (V0)) OR NOT(NOT((V30)))) OR NOT((((V0) OR (V17)) OR (V39)))))) AND ((((((V1) OR (V23)) OR (((V21) AND ((((V1) OR (V23)) OR ((((((V1) OR (V23)) OR (NOT(NOT((V27))) OR (V33))) OR (NOT((V30)) AND ((V12) AND (V23)))) OR (((V44) AND (V26)) OR NOT(((NOT(NOT(((((V49) AND NOT(((((V12) AND (V23)) OR NOT(NOT((V30)))) OR NOT(((NOT(NOT(NOT(((NOT(NOT((V15))) OR (NOT((V21)) OR NOT((V2)))) OR (V34))))) OR (V39)) OR (V39)))))) OR NOT(NOT((V30)))) OR NOT((NOT(NOT(NOT(((NOT(NOT((V15))) OR (((V44) AND (V26)) OR NOT((V2)))) OR (V34))))) OR (V39)))))) AND (((V31) OR (NOT(((V21) OR (V10))) AND NOT(((V6) AND (V12))))) OR ((NOT(NOT((V15))) OR (((V44) AND (NOT(NOT((V15))) OR ((NOT(NOT((V15))) OR ((((V44) AND (V26)) AND (V26)) OR ((V31) OR (NOT(((V21) OR (V10))) AND NOT(((NOT((NOT((V20)) AND NOT((V6)))) AND ((V21) OR (V10))) OR NOT(NOT(NOT(((V14) AND (V23))))))))))) AND (NOT(((((V49) AND (V0)) OR NOT((V34))) OR NOT(((V26) OR (V39))))) OR (((V19) OR (V23)) AND ((V40) AND (V31))))))) OR (V26))) AND (NOT(((((V0) AND ((((V1) OR (V23)) OR ((V21) OR (V33))) OR (NOT((V30)) AND (((((V49) AND (V23)) OR NOT((NOT(NOT(((((V49) AND NOT(((V15) AND NOT(NOT((((NOT((((V9) AND (V32)) OR (V22))) OR NOT((((V7) AND (V21)) AND (V21)))) OR ((NOT(((V8) AND (V14))) OR (((V3) OR (V7)) AND ((V15) AND (V24)))) AND (V39))) OR (NOT((V42)) OR ((V26) AND (NOT(((V0) AND (V49))) OR (NOT((V23)) OR NOT((V1)))))))))))) OR NOT(NOT((V21)))) OR NOT((NOT(NOT(NOT((((V3) OR (((V44) AND (V26)) OR NOT((V2)))) OR (V34))))) OR (V39)))))) AND ((((((V19) OR (V23)) OR ((V21) OR (V33))) OR (NOT((V30)) AND ((V12) AND (V23)))) OR (NOT(((V21) OR (V10))) AND NOT((((V12) OR NOT((NOT(NOT(NOT(((NOT(NOT((V20))) OR (((V40) AND (V0)) OR NOT((V40)))) OR (V34))))) OR (V39)))) AND (V49))))) OR ((NOT(NOT((V15))) OR (((V44) AND (V26)) OR NOT((V2)))) AND (NOT(((((V49) AND (V0)) OR NOT((V34))) OR NOT(((V26) OR (V39))))) OR (((V19) OR (V23)) AND ((V40) AND (V31))))))))) OR NOT(((V39) OR (V39)))) AND (V23))))) OR NOT((V34))) OR NOT(((V26) OR (V39))))) OR (((V19) OR (V23)) AND ((V40) AND (V31))))))) AND (V50))))) OR (V33))) OR (NOT((V30)) AND (V33)))) OR (V33))) OR (NOT((V30)) AND ((V12) AND (V23)))) OR (NOT(((V21) OR (V10))) AND NOT(((V6) AND (V49))))) OR ((NOT(NOT(((((V49) AND (V0)) OR NOT(NOT((V30)))) OR NOT((NOT(NOT(NOT(((NOT(NOT((V15))) OR (((V44) AND (((NOT(((V6) AND (V49))) OR ((NOT(NOT((V38))) OR (((V44) AND (V26)) OR NOT((V34)))) AND (NOT(((((V49) AND ((((V1) OR (V23)) OR ((V21) OR (NOT(NOT(((((V49) AND NOT(((V15) AND NOT(NOT((((NOT((((V32) AND (((((V30) OR (V15)) OR NOT((V4))) AND (V49)) OR NOT((V14)))) OR NOT((V34)))) OR NOT(((NOT((V11)) AND ((V16) OR (V14))) AND (V21)))) OR ((V49) AND (V0))) OR (NOT((V42)) OR ((V26) AND (V30))))))))) OR NOT(NOT((V21)))) OR NOT((NOT(NOT(NOT(((NOT(NOT((V15))) OR (((V44) AND (V26)) OR NOT((V2)))) OR (V34))))) OR (V39)))))) AND ((((((V19) OR (V23)) OR ((V15) OR (V33))) OR ((V30) AND (V16))) OR (NOT(((V21) OR (((V1) OR (V23)) OR ((V21) OR (V33))))) AND NOT((((((V49) AND (V0)) OR NOT(NOT((V30)))) OR NOT((NOT(NOT(NOT(((NOT(NOT((V15))) OR (((V44) AND (V26)) OR NOT((V2)))) OR (V34))))) OR (V39)))) AND (V49))))) OR ((NOT(NOT((V15))) OR (V49)) AND (NOT(((((V49) AND (V0)) OR NOT((V34))) OR NOT(((V26) OR (V39))))) OR ((NOT(NOT(((((((V1) OR (V23)) OR ((V23) OR (V33))) OR (NOT((V30)) AND ((V12) AND (V23)))) OR (((V44) AND (V26)) OR NOT((V2)))) OR (V34)))) OR (V23)) AND ((NOT(NOT(NOT(((NOT(NOT((V15))) OR (((V44) AND (V26)) OR NOT((V2)))) OR (V34))))) OR (V39)) AND (V31))))))))) OR (NOT((V30)) AND ((V12) AND NOT((V15)))))) OR NOT((V30))) OR NOT(((V26) OR (V39))))) OR (((V49) OR (V23)) AND ((V40) AND (V31)))))) AND (V26)) OR ((V40) AND (V31)))) OR NOT((V2)))) OR (V34))))) OR (V39)))))) AND ((((((V1) OR (V23)) OR ((V21) OR (V33))) OR (NOT((V30)) AND ((V12) AND ((((V49) AND ((V46) OR (V22))) OR NOT(NOT((V30)))) OR NOT(((((((V49) AND (V0)) OR NOT(NOT((V30)))) OR NOT(((V4) OR (V39)))) AND (V49)) OR (V39))))))) OR (NOT(((V21) OR (V10))) AND NOT(((V6) AND (V49))))) OR ((NOT(NOT((V15))) OR ((((V44) AND (V26)) AND (V34)) OR NOT(((V22) OR (NOT(((V24) AND (V9))) AND NOT(((V6) AND (NOT((V0)) AND NOT((V38)))))))))) AND (NOT((((V34) OR NOT((V34))) OR (V21))) OR (((V19) OR (V23)) AND (V39)))))) AND (V50)))) AND (V50))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=11
+maxOffspringDepth=48
+tournamentSize=8
+crossoverRate=0.8
+mutationRate=0.2
+mutationOffspringDepth=13
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8415300546448088, testAccuracy=0.5581395348837209
+Best Tree: (NOT(((((NOT((V18)) AND (NOT(((V34) OR (V44))) OR (((V25) AND (((NOT((V21)) AND NOT((V46))) AND (V47)) AND NOT(NOT((V36))))) AND NOT((V29))))) OR (((V30) AND (V18)) AND (V19))) AND ((NOT((V39)) OR ((V29) OR NOT((V6)))) OR NOT(NOT((((NOT((V25)) OR (((NOT(((((NOT((V29)) AND (NOT(((V34) OR (V44))) OR (((V25) AND (V25)) AND NOT((V29))))) OR (((V30) AND (V36)) AND (V19))) AND ((NOT((V39)) OR ((V29) OR NOT((V6)))) OR (((V29) OR NOT((((((NOT(((V26) OR NOT(((V25) AND ((V43) AND (V3)))))) AND NOT((V42))) AND NOT(((((((V37) AND (V2)) OR (NOT((NOT(NOT((V36))) OR ((V29) OR (((((V38) OR (V14)) OR (V45)) OR (V36)) OR NOT(((V20) AND ((V49) AND (V43)))))))) AND (V37))) AND (((V6) AND (V34)) AND (V18))) AND NOT((V26))) OR (((((V17) AND (V33)) AND (V25)) OR (((V36) AND (V25)) AND ((V26) OR (V42)))) AND (V18))))) OR (((V15) OR ((V22) AND (V1))) OR (NOT((NOT((V36)) AND NOT((((V0) OR (V1)) AND (V20))))) OR NOT(NOT(NOT((V26))))))) OR ((V8) OR NOT(((NOT((((V16) OR (V1)) AND NOT((((((V0) AND (V31)) OR NOT((((V39) OR (V10)) AND NOT((V45))))) OR (((((V39) OR (V9)) OR (V32)) AND ((V15) OR NOT((V43)))) OR ((NOT((V35)) OR ((V20) AND (V30))) AND (((V15) OR (V34)) AND (V48))))) AND (V20))))) AND NOT(NOT((V6)))) OR (NOT((V34)) OR (V15)))))) OR (V26)))) OR NOT((NOT(NOT(((V34) AND ((V37) AND NOT((V12)))))) AND NOT(((((NOT((V12)) OR ((V29) AND (NOT((V44)) AND ((((V24) AND (V15)) AND ((V13) AND (V30))) AND (((V24) AND (V9)) AND NOT((V20))))))) AND (V51)) AND (((((NOT((V0)) OR NOT((NOT((V45)) AND ((((NOT((V38)) AND (NOT((V21)) OR ((((V21) OR (V35)) OR NOT((V17))) AND NOT(((V38) OR (V51)))))) AND (V24)) AND (V45)) OR NOT(NOT(((NOT((V17)) AND (((V3) OR (V38)) AND ((V1) OR ((V2) AND (V41))))) OR (NOT(((V38) OR ((V44) OR (V22)))) AND (V25))))))))) AND (NOT((V32)) OR (NOT((V32)) OR (V48)))) AND (((((((V24) OR (V48)) AND (NOT(NOT((NOT((NOT((V20)) AND (V29))) AND NOT((V18))))) OR (NOT((((V31) OR (((V47) OR (V4)) OR (V47))) AND NOT(((V7) AND ((V49) OR (V22)))))) OR (V3)))) AND ((V51) AND ((((V36) OR ((NOT(NOT((V45))) AND NOT(((V40) AND (V38)))) AND ((((V19) AND (V0)) AND NOT((V6))) AND (NOT((V21)) OR ((V20) OR (V23)))))) AND (NOT(NOT(NOT(((V27) AND (V29))))) AND (V34))) AND (((NOT((((V35) OR (V33)) AND (V44))) OR ((((V27) OR (V18)) AND (V23)) OR (NOT((V11)) AND ((V9) AND (V11))))) OR ((V24) OR (NOT((V15)) AND (((V38) OR (V14)) OR NOT((V22)))))) OR NOT(((((V8) OR (V1)) AND (V31)) OR (V10))))))) AND (V17)) OR (V13)) AND NOT(((V32) AND NOT(NOT((NOT((V36)) OR (NOT((((((V51) OR (V31)) AND ((V20) OR (V12))) OR (V24)) AND NOT((NOT((V24)) OR NOT((V32)))))) OR (((V41) OR (NOT(NOT((V19))) OR (((V42) AND (V45)) OR ((V22) OR (V31))))) AND NOT((NOT((V19)) OR ((V33) AND NOT((V49)))))))))))))) AND NOT((V38))) AND (NOT(((V39) AND ((((V6) OR (V16)) AND ((V34) OR (V30))) AND (V35)))) OR (V24)))) OR (NOT(NOT(((NOT((((V50) AND (V26)) OR ((V26) AND (V23)))) OR NOT(NOT(((V12) AND (V35))))) AND ((NOT((V28)) OR NOT((V34))) OR (NOT(((V17) OR (V17))) OR (V39)))))) OR (NOT((NOT(((((V3) OR (V50)) AND NOT((V11))) AND (((V38) AND (V9)) OR NOT((V31))))) OR NOT(((((V35) AND (V40)) OR NOT((V16))) OR (((V4) AND (V10)) OR ((V16) AND (V48))))))) AND NOT((NOT(((V7) OR (((V3) AND (V17)) AND ((V49) AND (V25))))) OR ((((V28) AND ((V2) AND (V0))) AND ((V51) AND ((V28) AND (V25)))) AND ((((V29) OR (V47)) AND (V43)) AND NOT(((V39) AND (V35)))))))))))))))) AND (((V35) AND (V45)) OR (V29)))) AND NOT(NOT(((NOT((NOT((V39)) OR ((((V30) AND (V18)) AND (V19)) AND (V25)))) OR (((V25) AND (V25)) AND NOT((V29)))) AND (NOT(NOT((((((NOT(((NOT((NOT((NOT(((V14) OR (V40))) OR (V4))) AND NOT((V11)))) AND ((V35) OR (NOT(((NOT((V51)) AND ((V41) AND (V1))) AND (NOT((V10)) AND ((V9) AND (V20))))) AND ((NOT((V6)) OR (((V25) OR ((NOT(((NOT((((((V6) OR (V46)) AND ((V28) AND (V13))) OR (V38)) AND ((((V33) AND (V4)) AND ((V12) AND (V23))) AND (V44)))) OR NOT(((V51) AND (V25)))) AND ((((((V37) OR ((V35) OR (V24))) OR (NOT((V9)) OR (V48))) OR (V40)) OR (V24)) OR (V33)))) OR (NOT((V12)) AND (V19))) AND (V33))) AND NOT((V16)))) OR (V4))))) AND (((NOT(NOT(NOT(NOT((V15))))) OR ((NOT((V10)) OR (NOT((V28)) OR (V36))) OR NOT(NOT(((V3) OR (V1)))))) AND ((V23) AND NOT((NOT((V8)) AND (((V43) OR (V10)) OR ((V33) AND (V48))))))) OR NOT(NOT(((V44) OR (V7))))))) AND NOT((V12))) AND ((((V4) OR (V39)) OR NOT((NOT(((V23) AND (NOT((((V0) OR (V10)) OR NOT((V51)))) AND ((V49) OR (((V37) AND (V15)) AND (V34)))))) AND (((NOT(NOT(((V32) OR (V36)))) AND ((V44) AND NOT(((V11) AND (V4))))) AND NOT(((V18) OR NOT(((V19) OR (V6)))))) OR (NOT(((NOT((V3)) OR (NOT((V2)) OR (V34))) AND (V18))) OR (V28)))))) AND ((((((V37) OR (((((V27) AND (V9)) AND (V0)) OR NOT(((V7) AND (V32)))) OR (NOT(((V35) AND (V24))) OR (V31)))) OR (((NOT(((V8) AND (V21))) OR NOT(NOT((V27)))) AND NOT((V48))) OR (((V16) OR ((V48) AND NOT((V20)))) AND NOT(((V37) OR ((V23) OR (V50))))))) AND ((V37) OR (((V8) AND (V34)) AND (NOT((NOT((V49)) AND (V17))) OR NOT((V25)))))) OR NOT(((V4) AND (NOT(((((V41) OR (V39)) OR NOT((V35))) OR (V33))) AND ((V21) AND NOT((V24))))))) OR (V41)))) AND ((NOT((NOT((V17)) OR NOT((((((((V31) OR (V36)) AND (V5)) OR ((V38) OR NOT((V0)))) AND ((V3) AND NOT((((V45) AND NOT((V34))) OR ((NOT((V11)) AND (V23)) OR (V49)))))) OR NOT((V15))) OR (V38))))) OR (NOT((V51)) OR (V44))) OR ((V26) OR NOT(NOT(((NOT((((V7) AND ((V40) AND ((V10) AND (V7)))) OR ((((V49) OR (V42)) OR NOT((V18))) AND ((V23) OR ((V47) OR (V33)))))) OR ((V24) OR NOT((NOT(((V4) AND (V15))) OR (((V28) OR ((V25) AND (V25))) AND ((V40) AND (V51))))))) OR ((((V48) OR ((V38) AND ((V26) OR ((V28) AND (V35))))) OR NOT((NOT(((V23) OR (V46))) AND (V18)))) OR (((V38) OR (((V16) OR (V22)) OR NOT(((V48) OR (V48))))) OR (V42))))))))) OR (V26)) AND (NOT(NOT((V2))) OR ((((V38) OR (V14)) OR NOT((V6))) OR (V36)))))) OR ((V2) OR (V36))))))) AND (V18)) AND (V19))) AND ((((NOT((((V38) OR (V14)) OR (V13))) OR (V11)) AND NOT(NOT(((V37) OR (V0))))) OR ((V34) OR (V35))) OR NOT(NOT((V28))))) AND ((((V30) AND (V18)) AND (V19)) AND ((((V38) OR (V14)) OR NOT((V29))) AND (((V0) AND (V42)) AND ((V16) OR (V14)))))))))) AND (((V35) AND (V45)) OR ((V39) OR (V19))))) AND NOT(NOT(((NOT(((V34) OR (V39))) OR ((V37) OR ((V23) OR ((V25) OR ((V38) AND (V16)))))) AND (NOT(NOT(((NOT((NOT(NOT(((NOT(NOT(((V36) OR (V0)))) OR (((V25) AND (V25)) AND NOT((V29)))) AND (NOT((V35)) OR ((V17) OR (V32)))))) OR (V36))) OR (((V25) AND (V25)) AND NOT((V29)))) AND (NOT(NOT((V2))) OR ((((V38) OR (V14)) OR NOT((V6))) OR (V36)))))) OR ((((V38) OR (V14)) OR (V45)) OR (V36)))))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=11
+maxOffspringDepth=48
+tournamentSize=8
+crossoverRate=0.75
+mutationRate=0.25
+mutationOffspringDepth=10
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8415300546448088, testAccuracy=0.6162790697674418
+Best Tree: (((NOT((V12)) OR (NOT(((V47) OR (V21))) AND (((((V24) AND ((NOT(((((V9) OR (V2)) AND ((V32) AND (V3))) AND NOT((V15)))) AND NOT((NOT(NOT((V48))) AND (((V40) AND (V42)) OR ((V24) OR (V14)))))) AND (V4))) OR NOT(((NOT(NOT((((V33) OR (V20)) AND ((V18) OR (V43))))) OR NOT(NOT(NOT(((V30) AND NOT(((V35) OR NOT(NOT((NOT(((V28) AND (V15))) AND ((V33) AND ((V50) AND ((V9) AND (V44)))))))))))))) AND ((V22) OR (V16))))) OR ((V23) AND NOT(((NOT((V28)) OR NOT(((V24) AND (V39)))) AND (V45))))) AND NOT((((V8) OR (V1)) OR NOT((NOT(NOT((V33))) AND (NOT(((V47) OR (V21))) OR (((NOT((V20)) OR NOT((((V20) AND ((NOT(((V16) AND (V49))) OR (V20)) OR NOT((((V33) AND (V43)) AND (V19))))) OR NOT(((((((((V38) OR (V14)) OR NOT((V6))) AND ((V25) OR NOT((NOT((V6)) AND (V39))))) OR ((V50) OR NOT((V35)))) AND (V40)) AND (((V30) AND (V21)) AND ((V27) OR (V6)))) OR (NOT(((V30) AND (V45))) AND ((V29) AND NOT((V9))))))))) AND (((V24) AND (V39)) OR NOT(((NOT(NOT(NOT(NOT(NOT((V5)))))) AND ((V6) OR (NOT((((V20) OR (V32)) OR ((V47) AND (V13)))) OR (V26)))) AND (((V13) OR NOT((V4))) AND NOT(NOT(((V13) OR (((V39) AND (V45)) AND ((V46) AND (V42))))))))))) AND ((V43) OR (V0))))))))))) AND ((((((V38) OR (V14)) OR NOT((V6))) AND ((V25) OR ((V48) AND (NOT((V24)) OR ((NOT((V1)) OR ((V29) AND (V32))) AND (NOT((V23)) OR ((V3) AND ((V40) OR (V7))))))))) OR ((V50) OR (((V50) OR ((((V6) OR (V37)) AND NOT((V19))) AND NOT((V35)))) AND ((V22) OR (V16))))) AND (V40))) OR (((NOT(NOT((V20))) OR NOT((((V20) AND ((NOT((V12)) OR ((((V13) AND (V24)) OR (NOT((V33)) OR (V7))) OR ((V40) OR (V7)))) AND (((V15) OR ((V50) OR (((V21) AND (V15)) AND ((V22) OR (V16))))) AND (V40)))) OR NOT((((V50) AND ((V12) AND ((V27) OR (V6)))) OR (NOT(((V30) AND (V45))) AND ((V29) AND NOT((V9))))))))) AND (((V24) AND (V39)) OR ((V20) OR NOT(NOT(((((V21) AND (V24)) OR (NOT((V33)) OR ((V29) AND (V32)))) AND NOT((((V38) OR (V11)) AND (V33))))))))) AND ((V43) OR (V21))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=11
+maxOffspringDepth=49
+tournamentSize=8
+crossoverRate=0.75
+mutationRate=0.25
+mutationOffspringDepth=10
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8524590163934426, testAccuracy=0.627906976744186
+Best Tree: ((((((V43) AND (NOT((V24)) OR (((V21) OR ((V50) AND (V32))) AND (NOT((V27)) OR ((V3) AND (V39)))))) OR ((V24) OR (NOT((V17)) OR ((V18) AND (V31))))) OR (NOT(((V47) OR (V21))) AND (((NOT((V20)) OR (NOT(((V6) AND (V29))) AND NOT((NOT((V12)) OR (NOT(((V47) OR (V21))) AND (((NOT(NOT(NOT(((V26) OR (V31))))) OR (NOT(((NOT((V12)) OR (NOT(((V47) OR (V21))) AND (((NOT(NOT(NOT(((V26) OR (V31))))) OR (NOT(((V6) AND (V29))) AND NOT(((V12) AND (V51))))) OR (V41)) AND NOT((((V8) OR (V1)) OR NOT((NOT(NOT((V35))) AND (((V29) AND ((((((V38) OR (V14)) OR NOT((V6))) AND (((V22) OR (V16)) OR ((V48) AND (NOT((V24)) OR ((NOT((V1)) OR ((V3) AND (V39))) AND (NOT((V23)) OR (V23))))))) OR ((V50) OR (((V21) AND (V15)) AND ((V22) OR (V16))))) AND (V40))) OR (((NOT(NOT((V43))) OR (V23)) AND ((V12) OR ((V20) OR NOT(NOT(NOT(NOT(NOT((NOT((V31)) AND (((V46) OR NOT(((V10) OR NOT(NOT((((V10) OR (V12)) OR ((V26) AND ((NOT((((V6) AND (V24)) OR ((V3) AND (V13)))) OR NOT(NOT((V0)))) OR (V32))))))))) OR ((V15) AND ((((V49) OR (V28)) OR NOT((V37))) OR (((V41) AND (V39)) OR ((V21) OR (V40))))))))))))))) AND ((V43) OR (V0))))))))))) AND (V29))) AND NOT(((V12) AND (V51))))) OR (V41)) AND NOT((((NOT(NOT(NOT((NOT((V31)) AND (((V46) OR NOT(NOT((V16)))) OR ((V15) AND ((((V49) OR (V28)) OR NOT((V37))) OR (((V41) AND (V39)) OR ((V40) OR (V40)))))))))) OR ((V44) AND NOT((V27)))) OR (V12)) OR NOT((NOT((V15)) AND NOT((((V33) AND (V43)) AND (V25))))))))))))) OR (V41)) AND (V21)))) AND ((((((V38) OR (V14)) OR NOT((V6))) AND ((V25) OR ((V48) AND (NOT((V24)) OR ((NOT(((V38) OR (V14))) OR ((((V21) AND (V15)) AND ((((V38) OR (V14)) OR NOT((V6))) AND ((V25) OR ((V48) AND (NOT((V24)) OR ((NOT(((NOT(NOT(((V21) OR NOT(NOT(NOT(NOT(NOT((V36))))))))) AND (((((V13) OR NOT(((((V14) OR (V37)) OR ((V7) OR (V15))) OR (((V43) AND (V35)) OR ((V26) OR (V51)))))) AND NOT((V51))) AND ((((NOT(((V7) OR (V49))) AND NOT(((V26) AND (V49)))) OR (NOT((V1)) AND NOT(NOT((V27))))) AND NOT((V27))) OR ((NOT(((V31) AND ((V27) OR (V4)))) OR ((V3) OR (V46))) OR NOT(((V26) AND (NOT((V46)) OR ((V10) AND (V32)))))))) OR (NOT((((NOT((V6)) AND (((V29) AND (V31)) AND ((V19) OR (V12)))) OR (NOT(((V6) OR (V0))) OR (V10))) AND (((((V49) OR (V7)) OR NOT((V18))) AND NOT(((V17) OR (V37)))) AND NOT((V51))))) OR ((((V34) AND NOT(NOT(NOT((V30))))) OR NOT((V24))) AND (((NOT((V2)) AND NOT(((NOT(NOT((V20))) OR NOT((((V20) AND (NOT(((V32) AND ((V9) AND (V19)))) OR NOT(((((NOT(((V8) OR ((((((V17) OR (V0)) OR (V5)) OR (NOT((V49)) AND ((V6) OR (V7)))) OR (NOT(((V27) OR (V27))) OR (((V18) AND (V48)) AND ((V16) AND (V14))))) AND (V23)))) AND NOT((((((NOT((V9)) AND (V18)) OR (V7)) OR ((V30) OR (NOT((V36)) OR (V11)))) OR ((V22) OR ((((V49) OR (V45)) OR ((V32) AND (V9))) OR NOT(((V26) OR (V48)))))) OR NOT((NOT((V11)) OR (((V36) AND ((V42) OR (V22))) OR (V44))))))) OR (V30)) OR (NOT(NOT(NOT((V35)))) AND ((V25) AND ((V29) AND (((V1) AND (V46)) AND (((V35) AND (V47)) AND (V26))))))) AND (V19))))) OR NOT((((V50) AND ((V12) AND ((V27) OR (((NOT((V24)) OR ((NOT((V1)) OR ((V29) AND (V32))) AND (NOT((V23)) OR (((V38) OR (V14)) OR (V11))))) OR (V0)) OR NOT((((V20) AND ((((((V38) OR (V14)) OR NOT((V6))) AND ((((V22) AND ((V25) OR ((V48) AND ((V32) OR (V32))))) OR ((V50) OR (((V21) AND NOT((V38))) AND ((V22) OR (V16))))) AND (V40))) OR (((NOT(NOT((V43))) OR NOT(((V26) OR (V31)))) AND (((V24) AND (V39)) OR ((V20) OR NOT(NOT(((V3) AND (V28))))))) AND ((V43) OR ((V4) AND ((V50) OR (((V21) AND (V15)) AND (((V41) AND (V4)) AND ((V27) OR (V31))))))))) OR NOT((NOT(NOT(NOT(((V26) OR (V31))))) AND (V19))))) OR NOT((((V50) AND ((V12) AND ((V27) OR (V6)))) OR (NOT(((V30) AND NOT((V24)))) AND (((((V38) OR (V14)) OR NOT((V6))) AND ((V25) OR ((V48) AND (NOT((V24)) OR (((V40) OR (V47)) AND ((V16) OR (V29))))))) AND NOT((V9)))))))))))) OR (NOT(((V30) AND (V12))) AND ((V29) AND NOT((V9))))))))) AND (((V24) AND (V39)) OR ((V20) OR NOT(NOT(((((NOT(NOT(NOT(((V26) OR (V31))))) OR (NOT(((V6) AND (V29))) AND NOT((NOT((V12)) OR (NOT(((V47) OR (V21))) AND ((V50) AND ((V12) AND ((V27) OR (V6))))))))) AND (V24)) OR (NOT((V33)) OR (V7))) AND NOT((((V38) OR (V11)) AND (V33))))))))))) AND ((V37) OR (NOT((V17)) AND NOT((V35))))) OR (V9)))))) OR NOT((((((V31) AND ((V1) OR NOT((V17)))) OR ((V13) OR (((V16) OR (((V42) OR (V51)) AND NOT((V37)))) AND ((V40) AND (NOT((NOT(((V30) AND NOT((V24)))) AND ((V9) AND NOT((V9))))) OR ((V37) AND (V30))))))) OR NOT(NOT(NOT((NOT((V32)) OR (V14)))))) AND NOT((((V12) AND ((V28) OR NOT((V34)))) AND (V48))))))) OR ((V29) AND (V32))) AND (NOT((V23)) OR ((V3) AND (V39))))))))) AND (V32))) AND (NOT((V23)) OR ((V3) AND (V39)))))))) OR ((V50) OR (((V27) OR (V6)) AND ((V22) OR (V16))))) AND (V40))) OR (((NOT(NOT((V20))) OR NOT((((V20) AND (NOT((NOT(NOT(((V26) OR (V31)))) AND ((V9) AND NOT((V6))))) OR NOT((((V33) AND (V43)) AND (V19))))) OR NOT((((V50) AND ((V12) AND ((V27) OR (V6)))) OR (NOT(((V30) AND NOT((V24)))) AND ((V29) AND NOT((V9))))))))) AND (((V24) AND (V39)) OR (((V34) AND (V45)) OR NOT(NOT(((((V21) AND (V24)) OR (NOT((V33)) OR (V7))) AND NOT((((V38) OR (V11)) AND (V33))))))))) AND ((V43) OR ((V26) OR (V31)))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=11
+maxOffspringDepth=50
+tournamentSize=8
+crossoverRate=0.75
+mutationRate=0.25
+mutationOffspringDepth=10
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8360655737704918, testAccuracy=0.6046511627906976
+Best Tree: (((NOT((V12)) OR (NOT(((V47) OR (V21))) AND (((NOT(NOT(NOT(((V26) OR (V31))))) OR (NOT(((V6) AND (V29))) AND NOT(((V12) AND (V51))))) OR (V41)) AND NOT((((V8) OR (V1)) OR NOT((NOT(NOT((V35))) AND (((NOT((V12)) OR ((((V13) AND (V24)) OR (NOT((V33)) OR (V7))) OR ((V40) OR (V7)))) AND ((((((V38) OR (V14)) OR NOT((V6))) AND ((V25) OR ((V48) AND (NOT((V24)) OR ((NOT((V1)) OR ((V29) AND (V32))) AND (NOT((V23)) OR ((V3) AND (V39)))))))) OR ((V50) OR (((V21) AND (V15)) AND ((V22) OR (V16))))) AND (V40))) OR (((NOT(NOT((V20))) OR NOT((((V20) AND ((NOT(((V16) AND (V49))) OR NOT(NOT((V15)))) OR NOT((((V33) AND (V43)) AND (V19))))) OR NOT(((((((((V38) OR (V14)) OR NOT((V6))) AND ((V25) OR ((V6) AND (NOT((V24)) OR ((NOT((V1)) OR ((V29) AND (V32))) AND (NOT((V23)) OR ((V3) AND (V39)))))))) OR ((V50) OR ((V22) OR (V16)))) AND (V40)) AND (((V30) AND (V21)) AND ((V27) OR (V6)))) OR (NOT(((V30) AND (V45))) AND ((V29) AND NOT((V9))))))))) AND (((V24) AND (V39)) OR ((V20) OR NOT(NOT((NOT((((V4) AND ((V50) OR (((V21) AND (V15)) AND ((V22) OR (V16))))) AND (V26))) AND NOT((((V38) OR (V11)) AND (V33))))))))) AND ((V43) OR (V0))))))))))) AND ((((((V38) OR (V14)) OR NOT((V6))) AND ((V25) OR ((V48) AND (NOT((V24)) OR ((NOT((V1)) OR ((V29) AND (V32))) AND (NOT((V23)) OR ((V3) AND (V39)))))))) OR ((V50) OR (((V21) AND (V15)) AND ((V22) OR (V16))))) AND (V40))) OR (((NOT(NOT((V20))) OR NOT((((V20) AND (NOT((((V33) AND (V43)) AND ((V9) AND (V19)))) OR NOT((((V33) AND (V43)) AND (V19))))) OR NOT((((V50) AND ((V12) AND ((V27) OR (V6)))) OR (NOT(((V30) AND (V45))) AND ((V29) AND NOT((V9))))))))) AND (((V24) AND (V39)) OR ((V20) OR NOT(NOT(((((V21) AND (V24)) OR (NOT((V33)) OR (V7))) AND NOT((((V38) OR (V11)) AND (V33))))))))) AND ((V43) OR (V0))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=13
+maxOffspringDepth=50
+tournamentSize=8
+crossoverRate=0.75
+mutationRate=0.25
+mutationOffspringDepth=10
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8415300546448088, testAccuracy=0.47674418604651164
+Best Tree: (((NOT(((V10) OR (V17))) OR (V47)) AND (V50)) AND ((((V3) OR NOT((V39))) OR (V25)) OR (V25)))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=13
+maxOffspringDepth=54
+tournamentSize=10
+crossoverRate=0.75
+mutationRate=0.25
+mutationOffspringDepth=13
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8469945355191257, testAccuracy=0.6627906976744186
+Best Tree: ((NOT(((V38) AND ((V1) AND (V39)))) AND ((V25) AND (V2))) OR (NOT(NOT(((V35) AND (V40)))) OR ((NOT((V39)) AND (V50)) AND (NOT((V2)) AND (NOT((V3)) OR ((NOT((V45)) OR ((V43) OR NOT((V3)))) OR NOT((V21))))))))
+--- End Run ---
+

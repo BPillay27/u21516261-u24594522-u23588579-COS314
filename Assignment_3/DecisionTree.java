@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.List;
 
 public class DecisionTree {
 
@@ -167,6 +168,66 @@ public class DecisionTree {
             );
         } else {
             return new FeatureNode(rand.nextInt(52));
+        }
+    }
+
+    /*
+    * Flattens the tree  structure
+    */
+    public static void collectNodes(TreeNode root, List<TreeNode> nodeList) {
+        if (root == null) return;
+        nodeList.add(root);
+        if (root instanceof AndNode) {
+            collectNodes(((AndNode) root).leftChild, nodeList);
+            collectNodes(((AndNode) root).rightChild, nodeList);
+        } else if (root instanceof OrNode) {
+            collectNodes(((OrNode) root).leftChild, nodeList);
+            collectNodes(((OrNode) root).rightChild, nodeList);
+        } else if (root instanceof NotNode) {
+            collectNodes(((NotNode) root).child, nodeList);
+        }
+    }
+
+
+    /**
+     * Prunes a tree so it does not exceed the provided maximum offspring depth.
+     * When a subtree would exceed `maxOffspringDepth`, it is replaced with a
+     * terminal `FeatureNode` chosen at random.
+     *
+     * @param root the tree to prune
+     * @param maxOffspringDepth maximum allowed depth for the pruned tree
+     * @param rand source of randomness for creating replacement terminals
+     * @return a pruned clone of the input tree
+     */
+    public static TreeNode pruneTree(TreeNode root, int maxOffspringDepth, Random rand) {
+        if (root == null) return null;
+        return pruneByDepth(root, maxOffspringDepth, rand, 0);
+    }
+
+    private static TreeNode pruneByDepth(TreeNode node, int maxDepth, Random rand, int depth) {
+        if (node == null) return null;
+
+        if (depth > maxDepth) {
+            return new FeatureNode(rand.nextInt(52));
+        }
+
+        if (node instanceof AndNode) {
+            AndNode a = (AndNode) node;
+            return new AndNode(
+                pruneByDepth(a.leftChild, maxDepth, rand, depth + 1),
+                pruneByDepth(a.rightChild, maxDepth, rand, depth + 1)
+            );
+        } else if (node instanceof OrNode) {
+            OrNode o = (OrNode) node;
+            return new OrNode(
+                pruneByDepth(o.leftChild, maxDepth, rand, depth + 1),
+                pruneByDepth(o.rightChild, maxDepth, rand, depth + 1)
+            );
+        } else if (node instanceof NotNode) {
+            NotNode n = (NotNode) node;
+            return new NotNode(pruneByDepth(n.child, maxDepth, rand, depth + 1));
+        } else {
+            return node.cloneTree(); // FeatureNode or unknown terminal
         }
     }
 }
