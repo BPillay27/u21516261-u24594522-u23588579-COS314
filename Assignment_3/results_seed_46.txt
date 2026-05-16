@@ -1,0 +1,30 @@
+--- GP Run ---
+populationSize=200
+initialTreeDepth=12
+maxOffspringDepth=46
+tournamentSize=8
+crossoverRate=0.85
+mutationRate=0.15
+mutationOffspringDepth=8
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8743169398907104, testAccuracy=0.6395348837209303
+Best Tree: (NOT(NOT(NOT((NOT((((((NOT(NOT((V15))) AND NOT((V26))) AND (V9)) OR ((V20) OR ((V50) AND ((V33) OR (V50))))) AND NOT(((V32) OR (V31)))) OR ((NOT((V10)) AND ((V2) OR NOT((V16)))) AND (NOT((V24)) OR NOT(((NOT((V37)) AND ((V34) OR (V14))) AND (NOT(((V47) OR (V30))) AND NOT(((V10) OR (V48)))))))))) OR (NOT((NOT(((V2) OR (V36))) OR NOT(NOT((V43))))) OR NOT(NOT((NOT((V40)) AND NOT((V51)))))))))) OR NOT(((((((NOT(NOT((V38))) AND NOT(NOT((V8)))) AND ((((V45) AND (V47)) AND ((V39) AND (V38))) OR (NOT((V13)) AND NOT((V51))))) OR (NOT((V13)) AND NOT((V51)))) AND NOT(((NOT(((V34) OR (V17))) OR NOT(((V32) OR (V45)))) OR NOT(NOT(((V40) AND (V28))))))) OR (V9)) OR (((((NOT(NOT((V15))) AND NOT((V26))) AND NOT((((V35) OR (V34)) AND ((V1) AND (V21))))) OR (((NOT((V37)) AND ((V34) OR (V14))) AND (NOT((V35)) AND (V46))) AND (NOT(((V47) OR NOT(((((NOT((V37)) AND ((V34) OR (V14))) OR ((V20) OR ((V50) AND ((V33) OR (V50))))) AND NOT(((V32) OR (V31)))) OR ((NOT((V10)) AND ((V2) OR NOT((V16)))) AND (NOT((V24)) OR NOT((V24)))))))) AND NOT(((V10) OR (V48)))))) OR ((V2) OR NOT((NOT(NOT((V27))) AND NOT(((V21) AND (V6))))))) AND NOT((((NOT(NOT((V16))) OR (((V22) OR (V37)) OR NOT((V43)))) AND (NOT(NOT((V34))) AND (((V3) OR (V43)) AND NOT((V42))))) AND (((((V9) OR (V28)) AND ((V26) AND (V50))) OR NOT(NOT(NOT((((((NOT(NOT((V38))) AND NOT(NOT((V8)))) AND ((((V45) AND (V47)) AND ((V39) AND (V38))) OR (NOT((V13)) AND NOT((V51))))) OR (V38)) OR NOT((V24))) AND (((V0) OR (V49)) OR ((V15) AND (V8)))))))) AND NOT(NOT(NOT((V40)))))))))))
+--- End Run ---
+
+--- GP Run ---
+populationSize=200
+initialTreeDepth=13
+maxOffspringDepth=54
+tournamentSize=10
+crossoverRate=0.75
+mutationRate=0.25
+mutationOffspringDepth=13
+maxGenerations=100
+
+
+Final best (pruned) trainAccuracy=0.8688524590163934, testAccuracy=0.6395348837209303
+Best Tree: (NOT(NOT(NOT((NOT((((((V12) AND (V9)) OR ((V48) OR ((V20) OR (V42)))) AND NOT(((V32) OR (V31)))) OR ((NOT((V10)) AND ((V2) OR NOT((((V35) OR (V34)) AND ((V1) AND (V21)))))) AND (NOT(NOT((((V31) OR (V50)) AND (((V41) OR (((V23) OR (V33)) OR NOT((V25)))) AND NOT(NOT(NOT((V18)))))))) OR NOT((V24)))))) OR (NOT((NOT(((NOT(((V12) OR (NOT(((V34) OR (V17))) OR NOT(((V32) OR (V45)))))) AND (NOT((V1)) AND ((((V29) OR ((V15) AND (V27))) OR (V45)) AND (V7)))) OR (V36))) OR (((V46) AND (V10)) OR (V50)))) OR NOT(NOT((NOT((V40)) AND NOT((V51)))))))))) OR NOT(((((((NOT(NOT((V38))) AND NOT(NOT(((((V22) OR (V38)) OR NOT((V24))) AND ((NOT((V13)) OR (V49)) OR NOT(((((V22) OR (V38)) OR NOT((V24))) AND (((NOT((V13)) OR (V49)) OR ((V15) AND (V8))) OR ((V15) AND (V8)))))))))) AND ((((V45) AND (V31)) AND ((V39) AND (V38))) OR (NOT((V13)) AND NOT((V51))))) OR (NOT((((V15) OR (V10)) AND ((V23) OR (V30)))) AND NOT(NOT(((V5) AND (V51)))))) AND NOT(((NOT(((V34) OR (V17))) OR NOT(((V32) OR (V45)))) OR NOT(NOT(((V49) AND (V28))))))) OR NOT(NOT((((V12) AND (V9)) OR (NOT(((V29) OR ((V15) AND (V27)))) AND (((V15) AND (V28)) AND ((V6) OR (V8)))))))) OR ((((V2) OR (((NOT((V37)) AND ((V34) OR (V14))) AND (NOT((V35)) AND NOT((V31)))) AND (((V11) OR (((V32) OR ((V49) AND NOT(((NOT(((V29) AND NOT((NOT(((V9) AND (V12))) OR (NOT((V49)) AND (V20)))))) OR (NOT(((((V22) OR (V9)) OR ((V46) OR ((V11) AND (V31)))) AND NOT((((V34) AND (V40)) OR ((V47) OR (V31)))))) OR NOT((V33)))) AND NOT(((V48) AND (((NOT(NOT((V39))) OR (NOT((V36)) AND NOT((V6)))) OR ((((V4) OR (V19)) OR ((V21) AND (V6))) AND (((V24) AND ((V21) AND (V6))) AND ((V19) OR (V12))))) OR (((V18) AND NOT(NOT((V15)))) AND ((V29) AND (((V51) AND (V9)) AND ((V12) OR (V46)))))))))))) AND (V44))) AND NOT(((V10) OR (V48)))))) OR (NOT(((((V22) OR (V38)) OR NOT((V24))) AND ((NOT((V13)) OR (V49)) OR ((V15) AND (V8))))) OR NOT((NOT(NOT((V27))) AND NOT(((V21) AND (V6))))))) AND NOT((((NOT(NOT((V16))) OR (((V22) OR (V37)) OR NOT((V43)))) AND (NOT(NOT((V34))) AND (((V3) OR (V43)) AND NOT((V42))))) AND (NOT(((V9) OR ((V40) OR NOT(((NOT((V0)) OR ((V20) OR (V43))) AND NOT((V17))))))) AND NOT(NOT(NOT((V40)))))))))))
+--- End Run ---
+
