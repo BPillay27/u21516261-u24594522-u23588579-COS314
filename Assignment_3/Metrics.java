@@ -17,9 +17,7 @@ public class Metrics {
                          : 2.0 * precision * recall / (precision + recall);
     }
 
-    // ── factory ───────────────────────────────────────────────────────────────
-
-    /** Evaluate an individual against a loaded dataset. */
+    // Evaluate an individual against a loaded dataset.
     public static Metrics evaluate(Individual ind, DataLoader data) {
         int tp = 0, fp = 0, tn = 0, fn = 0;
         for (int i = 0; i < data.size; i++) {
@@ -33,8 +31,7 @@ public class Metrics {
         return new Metrics(tp, fp, tn, fn);
     }
 
-    // ── display ───────────────────────────────────────────────────────────────
-
+// display the summary
     public String summary() {
         return String.format(
             "Acc=%.4f  F1=%.4f  Prec=%.4f  Rec=%.4f  [TP=%d FP=%d TN=%d FN=%d]",
