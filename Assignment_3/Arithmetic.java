@@ -5,6 +5,16 @@ public class Arithmetic {
 
     private static final int NUM_RUNS = 30;
 
+    // Holds all user-configured GP parameters
+    static class Params {
+        int    minInitDepth  = 2;
+        int    maxInitDepth  = 6;
+        int    maxDepth      = 8;
+        int    tournamentSize = 5;
+        double crossoverRate = 0.80;
+        double mutationRate  = 0.20;
+    }
+
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
 
@@ -18,17 +28,51 @@ public class Arithmetic {
         System.out.print("Select mode: ");
         int mode = Integer.parseInt(sc.nextLine().trim());
 
+        Params p = promptParams(sc);
+
         switch (mode) {
-            case 1: runTraining(sc); break;
-            case 2: runDemo(sc);     break;
-            case 3: runTesting(sc);  break;
+            case 1: runTraining(sc, p); break;
+            case 2: runDemo(sc, p);     break;
+            case 3: runTesting(sc, p);  break;
             default: System.out.println("Invalid mode."); break;
         }
     }
 
-    // mode 1: 30 silent runs, identify best seed
+    // ── parameter prompt ──────────────────────────────────────────────────────
 
-    private static void runTraining(Scanner sc) throws IOException {
+    private static Params promptParams(Scanner sc) {
+        Params p = new Params();
+        System.out.println("\n── GP Parameters (press Enter to use default) ──");
+        p.minInitDepth   = promptInt(sc,    "Min initial tree depth",  p.minInitDepth);
+        p.maxInitDepth   = promptInt(sc,    "Max initial tree depth",  p.maxInitDepth);
+        p.maxDepth       = promptInt(sc,    "Max offspring depth",     p.maxDepth);
+        p.tournamentSize = promptInt(sc,    "Tournament size",         p.tournamentSize);
+        p.crossoverRate  = promptDouble(sc, "Crossover rate (0-1)",    p.crossoverRate);
+        p.mutationRate   = promptDouble(sc, "Mutation rate  (0-1)",    p.mutationRate);
+        System.out.println("────────────────────────────────────────");
+        System.out.printf("  Pop size: 200 | Generations: 100 | Init depth: %d-%d%n",
+                p.minInitDepth, p.maxInitDepth);
+        System.out.printf("  Max depth: %d | Tournament: %d | Crossover: %.0f%% | Mutation: %.0f%%%n",
+                p.maxDepth, p.tournamentSize, p.crossoverRate * 100, p.mutationRate * 100);
+        System.out.println("────────────────────────────────────────\n");
+        return p;
+    }
+
+    private static int promptInt(Scanner sc, String label, int def) {
+        System.out.printf("  %-30s [%d]: ", label, def);
+        String in = sc.nextLine().trim();
+        return in.isEmpty() ? def : Integer.parseInt(in);
+    }
+
+    private static double promptDouble(Scanner sc, String label, double def) {
+        System.out.printf("  %-30s [%.2f]: ", label, def);
+        String in = sc.nextLine().trim();
+        return in.isEmpty() ? def : Double.parseDouble(in);
+    }
+
+    // ── mode 1: 30 silent runs, identify best seed ────────────────────────────
+
+    private static void runTraining(Scanner sc, Params p) throws IOException {
         System.out.print("Enter base seed: ");
         long baseSeed = Long.parseLong(sc.nextLine().trim());
         System.out.print("Enter training file path: ");
@@ -46,7 +90,7 @@ public class Arithmetic {
             long seed = baseSeed + run;
             System.out.printf("Run %2d/30 | seed=%-10d ", run + 1, seed);
 
-            GP_Engine  engine = new GP_Engine(seed, trainData, false);
+            GP_Engine  engine = makeEngine(seed, trainData, false, p);
             Individual best   = engine.run();
             Metrics    m      = Metrics.evaluate(best, trainData);
 
@@ -76,9 +120,9 @@ public class Arithmetic {
         System.out.println("\nUse mode 2 or 3 with seed " + bestSeed + " for demo/testing.");
     }
 
-    // mode 2: single verbose run (for demo day)
+    // ── mode 2: single verbose run (for demo day) ─────────────────────────────
 
-    private static void runDemo(Scanner sc) throws IOException {
+    private static void runDemo(Scanner sc, Params p) throws IOException {
         System.out.print("Enter seed: ");
         long seed = Long.parseLong(sc.nextLine().trim());
         System.out.print("Enter training file path: ");
@@ -89,7 +133,7 @@ public class Arithmetic {
         System.out.println();
 
         long       start   = System.currentTimeMillis();
-        GP_Engine  engine  = new GP_Engine(seed, trainData, true);
+        GP_Engine  engine  = makeEngine(seed, trainData, true, p);
         Individual best    = engine.run();
         long       elapsed = System.currentTimeMillis() - start;
 
@@ -99,9 +143,9 @@ public class Arithmetic {
         System.out.printf ("Runtime         : %.2f seconds%n", elapsed / 1000.0);
     }
 
-    // mode 3: evaluate best model on unseen test set
+    // ── mode 3: evaluate best model on unseen test set ────────────────────────
 
-    private static void runTesting(Scanner sc) throws IOException {
+    private static void runTesting(Scanner sc, Params p) throws IOException {
         System.out.print("Enter best seed: ");
         long seed = Long.parseLong(sc.nextLine().trim());
         System.out.print("Enter training file path: ");
@@ -116,7 +160,7 @@ public class Arithmetic {
 
         System.out.println("\nRe-evolving with seed " + seed + " (silent)...");
         long       start   = System.currentTimeMillis();
-        GP_Engine  engine  = new GP_Engine(seed, trainData, false);
+        GP_Engine  engine  = makeEngine(seed, trainData, false, p);
         Individual best    = engine.run();
         long       elapsed = System.currentTimeMillis() - start;
 
@@ -146,5 +190,14 @@ public class Arithmetic {
                     i + 1, actual, predicted,
                     predicted != actual ? "  X" : "");
         }
+    }
+
+    // ── helper ────────────────────────────────────────────────────────────────
+
+    private static GP_Engine makeEngine(long seed, ArithmeticDataLoader data,
+                                        boolean verbose, Params p) {
+        return new GP_Engine(seed, data, verbose,
+                p.minInitDepth, p.maxInitDepth, p.maxDepth,
+                p.tournamentSize, p.crossoverRate, p.mutationRate);
     }
 }
