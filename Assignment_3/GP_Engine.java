@@ -4,25 +4,36 @@ import java.util.Random;
 
 public class GP_Engine {
 
-    private static final int    POP_SIZE        = 200;
-    private static final int    MAX_GENERATIONS = 100;
-    private static final int    MIN_INIT_DEPTH  = 2;
-    private static final int    MAX_INIT_DEPTH  = 6;
-    private static final int    MAX_DEPTH       = 8;
-    private static final int    TOURNAMENT_SIZE = 5;
-    private static final double CROSSOVER_RATE  = 0.80;
-    private static final double MUTATION_RATE   = 0.20;
+    // fixed by assignment spec
+    private static final int POP_SIZE        = 200;
+    private static final int MAX_GENERATIONS = 100;
 
-    private final Random     rng;
+    // design-decision parameters
+    private final int    minInitDepth;
+    private final int    maxInitDepth;
+    private final int    maxDepth;
+    private final int    tournamentSize;
+    private final double crossoverRate;
+    private final double mutationRate;
+
+    private final Random               rng;
     private final ArithmeticDataLoader trainData;
-    private final boolean    verbose;
-    private Individual[]     population;
-    private Individual       bestIndividual;
+    private final boolean              verbose;
+    private Individual[]               population;
+    private Individual                 bestIndividual;
 
-    public GP_Engine(long seed, ArithmeticDataLoader trainData, boolean verbose) {
-        this.rng       = new Random(seed);
-        this.trainData = trainData;
-        this.verbose   = verbose;
+    public GP_Engine(long seed, ArithmeticDataLoader trainData, boolean verbose,
+                     int minInitDepth, int maxInitDepth, int maxDepth,
+                     int tournamentSize, double crossoverRate, double mutationRate) {
+        this.rng            = new Random(seed);
+        this.trainData      = trainData;
+        this.verbose        = verbose;
+        this.minInitDepth   = minInitDepth;
+        this.maxInitDepth   = maxInitDepth;
+        this.maxDepth       = maxDepth;
+        this.tournamentSize = tournamentSize;
+        this.crossoverRate  = crossoverRate;
+        this.mutationRate   = mutationRate;
     }
 
     public Individual run() {
@@ -30,7 +41,7 @@ public class GP_Engine {
         population = new Individual[POP_SIZE];
         for (int i = 0; i < POP_SIZE; i++) {
             population[i] = Individual.rampedHalfAndHalf(
-                    rng, MIN_INIT_DEPTH, MAX_INIT_DEPTH, i, POP_SIZE);
+                    rng, minInitDepth, maxInitDepth, i, POP_SIZE);
         }
 
         evaluateAll();
@@ -45,13 +56,13 @@ public class GP_Engine {
             for (int i = 1; i < POP_SIZE; i++) {
                 Individual offspring;
 
-                if (rng.nextDouble() < CROSSOVER_RATE) {
+                if (rng.nextDouble() < crossoverRate) {
                     offspring = crossover(tournamentSelect(), tournamentSelect());
                 } else {
                     offspring = tournamentSelect().deepCopy();
                 }
 
-                if (rng.nextDouble() < MUTATION_RATE) {
+                if (rng.nextDouble() < mutationRate) {
                     offspring = mutate(offspring);
                 }
 
@@ -89,7 +100,7 @@ public class GP_Engine {
 
     private Individual tournamentSelect() {
         Individual best = population[rng.nextInt(POP_SIZE)];
-        for (int i = 1; i < TOURNAMENT_SIZE; i++) {
+        for (int i = 1; i < tournamentSize; i++) {
             Individual candidate = population[rng.nextInt(POP_SIZE)];
             if (candidate.fitness > best.fitness) best = candidate;
         }
@@ -109,7 +120,7 @@ public class GP_Engine {
         overwrite(point, donor);
 
         // If max depth is exceeded, fall back to p1
-        if (offspring.depth() > MAX_DEPTH) return p1.deepCopy();
+        if (offspring.depth() > maxDepth) return p1.deepCopy();
         return offspring;
     }
 
