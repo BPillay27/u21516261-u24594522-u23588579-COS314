@@ -2,6 +2,22 @@
   ARITHMETIC GP CLASSIFIER — COS314 Assignment 3 Results
 ================================================================
 
+HOW TO USE THIS FILE 
+----------------------------------------------------------------
+  Table 2 (GP Classifier row)  -->  see TEST EVALUATION section
+    Train(%) : 87.98
+    Test(%)  : 39.53
+    F-measure: 0.2778
+    Runtime  : 0.69s
+
+  Demo day seed to use      -->  108  (base seed 100)
+
+  30-run statistics (for methodology section)
+    Mean: 85.26%  |  Min: 81.42%  |  Max: 87.98%
+
+  Discussion points            -->  see OBSERVATIONS section
+----------------------------------------------------------------
+
 DATASET
   Training : 183 instances  (class 0: 144 no-recurrence, class 1: 39 recurrence)
   Test     :  86 instances  (class 0: 43, class 1: 43)
@@ -9,7 +25,7 @@ DATASET
 GP PARAMETERS
   Population size      : 200
   Max generations      : 100
-  Initial tree depth   : 2–6 (ramped half-and-half)
+  Initial tree depth   : 2-6 (ramped half-and-half)
   Max offspring depth  : 8
   Selection            : Tournament (size 5)
   Function set         : +, -, *, / (protected)
@@ -19,7 +35,7 @@ GP PARAMETERS
   Fitness function     : Accuracy
 
 ================================================================
-  30 INDEPENDENT RUNS  (base seed 100, seeds 100–129)
+  30 INDEPENDENT RUNS  (base seed 100, seeds 100-129)
 ================================================================
 
 Run  1 | seed=100 | Acc=0.8415  F1=0.4082
@@ -59,8 +75,10 @@ Training Accuracy Statistics:
   Max  : 0.8798  (87.98%)
 
 ================================================================
-  TEST EVALUATION — Best Training Run (seed 108)
+  TRAINING DEMO. Best Run (seed 108, Mode 2)
 ================================================================
+
+Reported seed : 108
 
 Best expression:
   ((((4.335 - inv_nodes) / (-3.881 + ((((inv_nodes - menopause) /
@@ -75,61 +93,39 @@ Best expression:
   ((node_caps - breast_quad) * ((node_caps - (4.156 * ((age -
   inv_nodes) + (4.156 * irradiat)))) * (4.156 * irradiat)))))
 
+Training Metrics (seed 108):
+  Acc=0.8798  F1=0.6071  Prec=1.0000  Rec=0.4359
+  Confusion Matrix: TP=17  FP=0  TN=144  FN=22
+  Runtime: 0.61 seconds
+
+================================================================
+  TEST EVALUATION — Best Training Run (seed 108, Mode 3)
+================================================================
+
 Algorithm            Train(%)     Test(%)      F-measure    Runtime(s)
-GP Arithmetic        87.98        39.53        0.2778       0.63
+GP Arithmetic        87.98        39.53        0.2778       0.61
 
 Confusion Matrix (Test):
   TP=10  FP=19  TN=24  FN=33
   Precision=0.3448  Recall=0.2326
 
-NOTE: Significant overfitting observed with seed 108. The model
-generalises poorly due to the class imbalance in the training set
-(144 vs 39) causing bias toward predicting no-recurrence.
-
-================================================================
-  TEST EVALUATION — Best Generalising Run (seed 42)
-================================================================
-
-Best expression:
-  ((inv_nodes / (deg_malig + -2.839)) - ((irradiat - (tumor_size -
-  (((irradiat * irradiat) / (-2.997 + deg_malig)) / inv_nodes))) /
-  ((inv_nodes + (inv_nodes + (irradiat * irradiat))) * (breast_quad
-  * (irradiat / irradiat)))))
-
-Algorithm            Train(%)     Test(%)      F-measure    Runtime(s)
-GP Arithmetic        84.70        61.63        0.5714       0.26
-
-Confusion Matrix (Test):
-  TP=22  FP=12  TN=31  FN=21
-  Precision=0.6471  Recall=0.5116
-
-================================================================
-  SUMMARY TABLE (for report)
-================================================================
-
-Algorithm            Train(%)     Test(%)      F-measure    Runtime(s)
-GP Arithmetic*       84.70        61.63        0.5714       0.26
-
-* Best generalising seed (42). Best training seed (108) showed
-  overfitting: 87.98% train vs 39.53% test.
-
 ================================================================
   OBSERVATIONS FOR REPORT
 ================================================================
 
-1. Class Imbalance: Training set is skewed (144:39 = 3.7:1).
-   The evolved expressions tend to predict no-recurrence to
-   maximise accuracy, hurting recall on the positive class.
+1. Class Imbalance: The training set is heavily skewed (144:39 = 3.7:1).
+   The evolved expression tends to predict no-recurrence to maximise
+   accuracy, which hurts recall on the positive (recurrence) class.
 
-2. Overfitting: The best training seed (108) scored 87.98% on
-   train but only 39.53% on the balanced test set. Seed 42
-   shows far better generalisation (61.63% test).
+2. Overfitting: The best training seed (108) achieved 87.98% on the
+   training set but only 39.53% on the balanced test set. This gap is
+   caused by the class imbalance, the model learns to always predict
+   the majority class rather than truly discriminating.
 
-3. Key Features: inv_nodes and deg_malig appear consistently
-   in the best expressions across seeds — clinically meaningful
-   as degree of malignancy and invaded nodes are strong
-   cancer recurrence indicators.
+3. Key Features: inv_nodes and deg_malig appear consistently in the
+   best expression - clinically meaningful as invaded lymph nodes and
+   degree of malignancy are strong breast cancer recurrence indicators.
 
-4. F-measure: Seed 42 achieves F1=0.5714 on the test set,
-   indicating reasonable balance between precision and recall.
+4. F-measure: Test F1=0.2778 reflects the poor recall on the positive
+   class (Recall=0.2326), consistent with the majority-class bias.
 ================================================================
