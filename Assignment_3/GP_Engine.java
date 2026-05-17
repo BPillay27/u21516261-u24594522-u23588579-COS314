@@ -12,6 +12,7 @@ public class GP_Engine {
     private final int    minInitDepth;
     private final int    maxInitDepth;
     private final int    maxDepth;
+    private final int    mutationOffspringDepth;
     private final int    tournamentSize;
     private final double crossoverRate;
     private final double mutationRate;
@@ -23,15 +24,16 @@ public class GP_Engine {
     private Individual                 bestIndividual;
 
     public GP_Engine(long seed, ArithmeticDataLoader trainData, boolean verbose,
-                     int minInitDepth, int maxInitDepth, int maxDepth,
+                     int minInitDepth, int maxInitDepth, int maxDepth, int mutationOffspringDepth,
                      int tournamentSize, double crossoverRate, double mutationRate) {
         this.rng            = new Random(seed);
         this.trainData      = trainData;
         this.verbose        = verbose;
         this.minInitDepth   = minInitDepth;
         this.maxInitDepth   = maxInitDepth;
-        this.maxDepth       = maxDepth;
-        this.tournamentSize = tournamentSize;
+        this.maxDepth             = maxDepth;
+        this.mutationOffspringDepth = mutationOffspringDepth;
+        this.tournamentSize       = tournamentSize;
         this.crossoverRate  = crossoverRate;
         this.mutationRate   = mutationRate;
     }

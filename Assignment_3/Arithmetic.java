@@ -9,7 +9,8 @@ public class Arithmetic {
     static class Params {
         int    minInitDepth  = 2;
         int    maxInitDepth  = 6;
-        int    maxDepth      = 8;
+        int    maxDepth             = 8;
+        int    mutationOffspringDepth = 4;
         int    tournamentSize = 5;
         double crossoverRate = 0.80;
         double mutationRate  = 0.20;
@@ -45,15 +46,16 @@ public class Arithmetic {
         System.out.println("\n── GP Parameters (press Enter to use default) ──");
         p.minInitDepth   = promptInt(sc,    "Min initial tree depth",  p.minInitDepth);
         p.maxInitDepth   = promptInt(sc,    "Max initial tree depth",  p.maxInitDepth);
-        p.maxDepth       = promptInt(sc,    "Max offspring depth",     p.maxDepth);
-        p.tournamentSize = promptInt(sc,    "Tournament size",         p.tournamentSize);
+        p.maxDepth             = promptInt(sc, "Max offspring depth",        p.maxDepth);
+        p.mutationOffspringDepth = promptInt(sc, "Mutation offspring depth", p.mutationOffspringDepth);
+        p.tournamentSize       = promptInt(sc, "Tournament size",            p.tournamentSize);
         p.crossoverRate  = promptDouble(sc, "Crossover rate (0-1)",    p.crossoverRate);
         p.mutationRate   = promptDouble(sc, "Mutation rate  (0-1)",    p.mutationRate);
         System.out.println("────────────────────────────────────────");
         System.out.printf("  Pop size: 200 | Generations: 100 | Init depth: %d-%d%n",
                 p.minInitDepth, p.maxInitDepth);
-        System.out.printf("  Max depth: %d | Tournament: %d | Crossover: %.0f%% | Mutation: %.0f%%%n",
-                p.maxDepth, p.tournamentSize, p.crossoverRate * 100, p.mutationRate * 100);
+        System.out.printf("  Max depth: %d | Mut depth: %d | Tournament: %d | Crossover: %.0f%% | Mutation: %.0f%%%n",
+                p.maxDepth, p.mutationOffspringDepth, p.tournamentSize, p.crossoverRate * 100, p.mutationRate * 100);
         System.out.println("────────────────────────────────────────\n");
         return p;
     }
@@ -197,7 +199,7 @@ public class Arithmetic {
     private static GP_Engine makeEngine(long seed, ArithmeticDataLoader data,
                                         boolean verbose, Params p) {
         return new GP_Engine(seed, data, verbose,
-                p.minInitDepth, p.maxInitDepth, p.maxDepth,
+                p.minInitDepth, p.maxInitDepth, p.maxDepth, p.mutationOffspringDepth,
                 p.tournamentSize, p.crossoverRate, p.mutationRate);
     }
 }
