@@ -18,7 +18,7 @@ public class Metrics {
     }
 
     // Evaluate an individual against a loaded dataset.
-    public static Metrics evaluate(Individual ind, DataLoader data) {
+    public static Metrics evaluate(Individual ind, ArithmeticDataLoader data) {
         int tp = 0, fp = 0, tn = 0, fn = 0;
         for (int i = 0; i < data.size; i++) {
             int predicted = ind.classify(data.features[i]);

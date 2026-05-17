@@ -34,7 +34,7 @@ public class Arithmetic {
         System.out.print("Enter training file path: ");
         String trainPath = sc.nextLine().trim();
 
-        DataLoader trainData = DataLoader.load(trainPath);
+        ArithmeticDataLoader trainData = ArithmeticDataLoader.load(trainPath);
         System.out.println("Loaded: " + trainData);
 
         Individual bestOverall = null;
@@ -84,7 +84,7 @@ public class Arithmetic {
         System.out.print("Enter training file path: ");
         String trainPath = sc.nextLine().trim();
 
-        DataLoader trainData = DataLoader.load(trainPath);
+        ArithmeticDataLoader trainData = ArithmeticDataLoader.load(trainPath);
         System.out.println("Loaded: " + trainData);
         System.out.println();
 
@@ -109,8 +109,8 @@ public class Arithmetic {
         System.out.print("Enter test file path: ");
         String testPath = sc.nextLine().trim();
 
-        DataLoader trainData = DataLoader.load(trainPath);
-        DataLoader testData  = DataLoader.load(testPath);
+        ArithmeticDataLoader trainData = ArithmeticDataLoader.load(trainPath);
+        ArithmeticDataLoader testData  = ArithmeticDataLoader.load(testPath);
         System.out.println("Train: " + trainData);
         System.out.println("Test : " + testData);
 

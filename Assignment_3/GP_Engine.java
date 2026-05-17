@@ -14,12 +14,12 @@ public class GP_Engine {
     private static final double MUTATION_RATE   = 0.20;
 
     private final Random     rng;
-    private final DataLoader trainData;
+    private final ArithmeticDataLoader trainData;
     private final boolean    verbose;
     private Individual[]     population;
     private Individual       bestIndividual;
 
-    public GP_Engine(long seed, DataLoader trainData, boolean verbose) {
+    public GP_Engine(long seed, ArithmeticDataLoader trainData, boolean verbose) {
         this.rng       = new Random(seed);
         this.trainData = trainData;
         this.verbose   = verbose;

@@ -4,24 +4,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataLoader {
+public class ArithmeticDataLoader {
 
     public final double[][] features;
     public final int[]      labels;
     public final int        size;
 
-    private DataLoader(double[][] features, int[] labels) {
+    private ArithmeticDataLoader(double[][] features, int[] labels) {
         this.features = features;
         this.labels   = labels;
         this.size     = labels.length;
     }
 
-    /**
-     * Loads a CSV file where the first column is the class label (0 or 1)
-     * and the remaining 9 columns are numeric features.
-     * The header row is skipped automatically.
-     */
-    public static DataLoader load(String filepath) throws IOException {
+    public static ArithmeticDataLoader load(String filepath) throws IOException {
         List<double[]> featureList = new ArrayList<>();
         List<Integer>  labelList  = new ArrayList<>();
 
@@ -46,7 +41,7 @@ public class DataLoader {
         int[]      labels   = new int[labelList.size()];
         for (int i = 0; i < labels.length; i++) labels[i] = labelList.get(i);
 
-        return new DataLoader(features, labels);
+        return new ArithmeticDataLoader(features, labels);
     }
 
     // Counts instances of a given class label.
