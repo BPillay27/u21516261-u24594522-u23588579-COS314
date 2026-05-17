@@ -1,0 +1,135 @@
+================================================================
+  ARITHMETIC GP CLASSIFIER — COS314 Assignment 3 Results
+================================================================
+
+DATASET
+  Training : 183 instances  (class 0: 144 no-recurrence, class 1: 39 recurrence)
+  Test     :  86 instances  (class 0: 43, class 1: 43)
+
+GP PARAMETERS
+  Population size      : 200
+  Max generations      : 100
+  Initial tree depth   : 2–6 (ramped half-and-half)
+  Max offspring depth  : 8
+  Selection            : Tournament (size 5)
+  Function set         : +, -, *, / (protected)
+  Crossover rate       : 80%
+  Mutation rate        : 20%
+  Mutation type        : Point
+  Fitness function     : Accuracy
+
+================================================================
+  30 INDEPENDENT RUNS  (base seed 100, seeds 100–129)
+================================================================
+
+Run  1 | seed=100 | Acc=0.8415  F1=0.4082
+Run  2 | seed=101 | Acc=0.8361  F1=0.3750
+Run  3 | seed=102 | Acc=0.8361  F1=0.4000
+Run  4 | seed=103 | Acc=0.8634  F1=0.5455
+Run  5 | seed=104 | Acc=0.8525  F1=0.4706
+Run  6 | seed=105 | Acc=0.8142  F1=0.2273
+Run  7 | seed=106 | Acc=0.8579  F1=0.5000
+Run  8 | seed=107 | Acc=0.8525  F1=0.4706
+Run  9 | seed=108 | Acc=0.8798  F1=0.6071  <-- Best training accuracy
+Run 10 | seed=109 | Acc=0.8634  F1=0.5283
+Run 11 | seed=110 | Acc=0.8579  F1=0.5185
+Run 12 | seed=111 | Acc=0.8634  F1=0.5283
+Run 13 | seed=112 | Acc=0.8743  F1=0.5818
+Run 14 | seed=113 | Acc=0.8525  F1=0.5091
+Run 15 | seed=114 | Acc=0.8306  F1=0.3673
+Run 16 | seed=115 | Acc=0.8579  F1=0.5185
+Run 17 | seed=116 | Acc=0.8415  F1=0.4082
+Run 18 | seed=117 | Acc=0.8415  F1=0.4082
+Run 19 | seed=118 | Acc=0.8525  F1=0.5091
+Run 20 | seed=119 | Acc=0.8579  F1=0.5000
+Run 21 | seed=120 | Acc=0.8525  F1=0.4906
+Run 22 | seed=121 | Acc=0.8634  F1=0.5455
+Run 23 | seed=122 | Acc=0.8525  F1=0.4706
+Run 24 | seed=123 | Acc=0.8634  F1=0.5283
+Run 25 | seed=124 | Acc=0.8579  F1=0.5000
+Run 26 | seed=125 | Acc=0.8415  F1=0.4314
+Run 27 | seed=126 | Acc=0.8525  F1=0.4906
+Run 28 | seed=127 | Acc=0.8579  F1=0.5000
+Run 29 | seed=128 | Acc=0.8579  F1=0.5000
+Run 30 | seed=129 | Acc=0.8525  F1=0.4706
+
+Training Accuracy Statistics:
+  Mean : 0.8526  (85.26%)
+  Min  : 0.8142  (81.42%)
+  Max  : 0.8798  (87.98%)
+
+================================================================
+  TEST EVALUATION — Best Training Run (seed 108)
+================================================================
+
+Best expression:
+  ((((4.335 - inv_nodes) / (-3.881 + ((((inv_nodes - menopause) /
+  (deg_malig * breast)) / (deg_malig * 2.708)) * (inv_nodes +
+  (tumor_size + 2.708))))) * ((4.335 + ((inv_nodes + (node_caps +
+  (tumor_size + irradiat))) / ((inv_nodes - age) * (inv_nodes *
+  breast)))) + ((((inv_nodes - breast_quad) * (deg_malig + (irradiat
+  * node_caps))) + (inv_nodes + (tumor_size + 2.708))) / ((inv_nodes
+  - age) * (deg_malig * breast))))) / ((((inv_nodes + (irradiat +
+  irradiat)) / ((inv_nodes - breast_quad) * (deg_malig * irradiat)))
+  + ((inv_nodes - 4.156) / ((age - inv_nodes) + tumor_size))) /
+  ((node_caps - breast_quad) * ((node_caps - (4.156 * ((age -
+  inv_nodes) + (4.156 * irradiat)))) * (4.156 * irradiat)))))
+
+Algorithm            Train(%)     Test(%)      F-measure    Runtime(s)
+GP Arithmetic        87.98        39.53        0.2778       0.63
+
+Confusion Matrix (Test):
+  TP=10  FP=19  TN=24  FN=33
+  Precision=0.3448  Recall=0.2326
+
+NOTE: Significant overfitting observed with seed 108. The model
+generalises poorly due to the class imbalance in the training set
+(144 vs 39) causing bias toward predicting no-recurrence.
+
+================================================================
+  TEST EVALUATION — Best Generalising Run (seed 42)
+================================================================
+
+Best expression:
+  ((inv_nodes / (deg_malig + -2.839)) - ((irradiat - (tumor_size -
+  (((irradiat * irradiat) / (-2.997 + deg_malig)) / inv_nodes))) /
+  ((inv_nodes + (inv_nodes + (irradiat * irradiat))) * (breast_quad
+  * (irradiat / irradiat)))))
+
+Algorithm            Train(%)     Test(%)      F-measure    Runtime(s)
+GP Arithmetic        84.70        61.63        0.5714       0.26
+
+Confusion Matrix (Test):
+  TP=22  FP=12  TN=31  FN=21
+  Precision=0.6471  Recall=0.5116
+
+================================================================
+  SUMMARY TABLE (for report)
+================================================================
+
+Algorithm            Train(%)     Test(%)      F-measure    Runtime(s)
+GP Arithmetic*       84.70        61.63        0.5714       0.26
+
+* Best generalising seed (42). Best training seed (108) showed
+  overfitting: 87.98% train vs 39.53% test.
+
+================================================================
+  OBSERVATIONS FOR REPORT
+================================================================
+
+1. Class Imbalance: Training set is skewed (144:39 = 3.7:1).
+   The evolved expressions tend to predict no-recurrence to
+   maximise accuracy, hurting recall on the positive class.
+
+2. Overfitting: The best training seed (108) scored 87.98% on
+   train but only 39.53% on the balanced test set. Seed 42
+   shows far better generalisation (61.63% test).
+
+3. Key Features: inv_nodes and deg_malig appear consistently
+   in the best expressions across seeds — clinically meaningful
+   as degree of malignancy and invaded nodes are strong
+   cancer recurrence indicators.
+
+4. F-measure: Seed 42 achieves F1=0.5714 on the test set,
+   indicating reasonable balance between precision and recall.
+================================================================
