@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
+public class Arithmetic {
 
     private static final int NUM_RUNS = 30;
 
@@ -26,7 +26,7 @@ public class Main {
         }
     }
 
-    // mode 1: 30 silent runs, identify best seed 
+    // mode 1: 30 silent runs, identify best seed
 
     private static void runTraining(Scanner sc) throws IOException {
         System.out.print("Enter base seed: ");
@@ -76,7 +76,7 @@ public class Main {
         System.out.println("\nUse mode 2 or 3 with seed " + bestSeed + " for demo/testing.");
     }
 
-    //  mode 2: single verbose run 
+    // mode 2: single verbose run (for demo day)
 
     private static void runDemo(Scanner sc) throws IOException {
         System.out.print("Enter seed: ");
@@ -99,7 +99,7 @@ public class Main {
         System.out.printf ("Runtime         : %.2f seconds%n", elapsed / 1000.0);
     }
 
-    //  mode 3: evaluate best model on unseen test set 
+    // mode 3: evaluate best model on unseen test set
 
     private static void runTesting(Scanner sc) throws IOException {
         System.out.print("Enter best seed: ");
