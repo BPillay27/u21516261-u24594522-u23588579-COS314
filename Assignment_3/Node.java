@@ -17,7 +17,6 @@ public class Node {
     public int    featureIndex; // VARIABLE nodes only
     public double constant;     // CONSTANT nodes only
 
-\
     public Node(char operator, Node left, Node right) {
         this.type     = Type.FUNCTION;
         this.operator = operator;

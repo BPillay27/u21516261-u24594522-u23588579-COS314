@@ -1,5 +1,4 @@
 import java.util.Random;
-
 public class Individual {
 
     public Node   root;
@@ -16,7 +15,7 @@ public class Individual {
         return root.evaluate(features);
     }
 
-    /** Classification rule: output > 0 → recurrence (1), else no-recurrence (0). */
+    // Classification rule: output > 0 → recurrence (1), else no-recurrence (0).
     public int classify(double[] features) {
         return evaluate(features) > 0.0 ? 1 : 0;
     }
@@ -33,9 +32,7 @@ public class Individual {
     @Override
     public String toString() { return root.toString(); }
 
-    // ── tree generation ───────────────────────────────────────────────────────
-
-   //Full method strat
+    //Full method strat
     public static Individual generateFull(Random rng, int maxDepth) {
         return new Individual(buildFull(rng, maxDepth));
     }
